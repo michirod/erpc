@@ -119,7 +119,7 @@ erpc_status_t sockRPMsgRTOSTransport::receive(MessageBuffer *message)
     return kErpcStatus_Success;
 }
 
-erpc_status_t sockRPMsgRTOSTransport::send(const MessageBuffer *message)
+erpc_status_t sockRPMsgRTOSTransport::send(MessageBuffer *message)
 {
     while (sock_fd < 0)
     {

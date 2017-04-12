@@ -96,7 +96,7 @@ public:
      * @retval kErpcStatus_SendFailed Failed to send message buffer.
      * @retval kErpcStatus_Success Successfully sent all data.
      */
-    virtual erpc_status_t send(const MessageBuffer *message);
+    virtual erpc_status_t send(MessageBuffer *message);
 
 protected:
     static int sock_fd;
