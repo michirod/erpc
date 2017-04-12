@@ -56,6 +56,13 @@
         #define ERPC_HAS_FREERTOSCONFIG_H (1)
     #endif
 #endif
+        
+//TODO: check if this is the correcte header to look for
+#if defined(__has_include)
+    #if __has_include("ti/sysbios/BIOS.h")
+        #define ERPC_HAS_SYSBIOS_BIOS_H (1)
+    #endif
+#endif
 
 // Detect threading model if not already set.
 #if !defined(ERPC_THREADS)
@@ -65,6 +72,9 @@
     #elif ERPC_HAS_FREERTOSCONFIG_H
         // Use FreeRTOS if we can auto detect it.
         #define ERPC_THREADS (ERPC_THREADS_FREERTOS)
+    #elif ERPC_HAS_SYSBIOS_BIOS_H
+        // Use Sys/BIOS if we can auto detect it.
+        #define ERPC_THREADS (ERPC_THREADS_SYSBIOS)
     #else
         // Otherwise default to no threads.
         #define ERPC_THREADS (ERPC_THREADS_NONE)

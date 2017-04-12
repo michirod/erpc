@@ -44,6 +44,17 @@
 #include "FreeRTOS.h"
 #include "semphr.h"
 #include "task.h"
+#elif ERPC_THREADS_IS(SYSBIOS)
+#include <xdc/std.h>
+#include <xdc/cfg/global.h>
+#include <xdc/runtime/System.h>
+#include <ti/sysbios/BIOS.h>
+
+#include <ti/sysbios/knl/Task.h>
+#include <ti/sysbios/knl/Semaphore.h>
+#include <ti/sysbios/gates/GateAll.h>
+#include <ti/sysbios/gates/GateMutex.h>
+#include <ti/sysbios/knl/Mailbox.h>
 #endif // ERPC_THREADS_IS
 
 /*!
@@ -116,6 +127,8 @@ public:
         return reinterpret_cast<thread_id_t>(m_thread);
 #elif ERPC_THREADS_IS(FREERTOS)
         return reinterpret_cast<thread_id_t>(m_task);
+#elif ERPC_THREADS_IS(SYSBIOS)
+        return reinterpret_cast<thread_id_t>(m_task);
 #endif
     }
 
@@ -125,6 +138,8 @@ public:
         return reinterpret_cast<thread_id_t>(pthread_self());
 #elif ERPC_THREADS_IS(FREERTOS)
         return reinterpret_cast<thread_id_t>(xTaskGetCurrentTaskHandle());
+#elif ERPC_THREADS_IS(SYSBIOS)
+        return reinterpret_cast<thread_id_t>(Task_self());
 #endif
     }
 
@@ -148,12 +163,24 @@ private:
     TaskHandle_t m_task;
     Thread *m_next;
     static Thread *s_first;
+#elif ERPC_THREADS_IS(SYSBIOS)
+    Task_Handle m_task;
+    GateMutex_Handle gc_mutex;
+    Thread *m_next;
+    static Thread *s_first;
+    static GateAll_Handle list_lock;
+    static Task_Handle gc_handle;
+    static Mailbox_Handle gc_list;
 #endif
 
 #if ERPC_THREADS_IS(PTHREADS)
     static void *threadEntryPointStub(void *arg);
 #elif ERPC_THREADS_IS(FREERTOS)
     static void threadEntryPointStub(void *arg);
+#elif ERPC_THREADS_IS(SYSBIOS)
+    static Void threadEntryPointStub(UArg arg0, UArg arg1);
+    static void initLocks();
+    static Void garbage_collector(UArg arg0, UArg arg1);
 #endif
 
 private:
@@ -207,6 +234,10 @@ private:
     pthread_mutex_t m_mutex;
 #elif ERPC_THREADS_IS(FREERTOS)
     SemaphoreHandle_t m_mutex;
+#elif ERPC_THREADS_IS(SYSBIOS)
+    GateMutex_Handle m_mutex;
+    IArg m_key;
+    bool m_taken;
 #endif
 
 private:
@@ -238,6 +269,8 @@ private:
     Mutex m_mutex;
 #elif ERPC_THREADS_IS(FREERTOS)
     SemaphoreHandle_t m_sem;
+#elif ERPC_THREADS_IS(SYSBIOS)
+    Semaphore_Handle m_sem;
 #endif // ERPC_HAS_PTHREADS
 
 private:

@@ -50,8 +50,7 @@ INCLUDES += $(ERPC_C_ROOT)/config \
 			$(ERPC_C_ROOT)/setup \
 			$(ERPC_C_ROOT)/transports
 
-SOURCES += 	$(ERPC_C_ROOT)/infra/arbitrated_client_manager.cpp \
-			$(ERPC_C_ROOT)/infra/basic_codec.cpp \
+SOURCES += 	$(ERPC_C_ROOT)/infra/basic_codec.cpp \
 			$(ERPC_C_ROOT)/infra/client_manager.cpp \
 			$(ERPC_C_ROOT)/infra/framed_transport.cpp \
 			$(ERPC_C_ROOT)/infra/message_buffer.cpp \
@@ -60,14 +59,11 @@ SOURCES += 	$(ERPC_C_ROOT)/infra/arbitrated_client_manager.cpp \
 			$(ERPC_C_ROOT)/infra/transport_arbitrator.cpp \
 			$(ERPC_C_ROOT)/port/erpc_port_stdlib.cpp \
 			$(ERPC_C_ROOT)/port/erpc_threading_pthreads.cpp \
-			$(ERPC_C_ROOT)/port/serial.cpp \
-			$(ERPC_C_ROOT)/setup/erpc_arbitrated_client_setup.cpp \
+			$(ERPC_C_ROOT)/port/erpc_threading_freertos.cpp \
+			$(ERPC_C_ROOT)/port/erpc_threading_sysbios.cpp \
 			$(ERPC_C_ROOT)/setup/erpc_client_setup.cpp \
 			$(ERPC_C_ROOT)/setup/erpc_server_setup.cpp \
-			$(ERPC_C_ROOT)/setup/erpc_setup_serial.cpp \
-			$(ERPC_C_ROOT)/transports/inter_thread_buffer_transport.cpp \
-			$(ERPC_C_ROOT)/transports/serial_transport.cpp \
-			$(ERPC_C_ROOT)/transports/tcp_transport.cpp
+			$(ERPC_C_ROOT)/setup/erpc_setup_mbf_dynamic.cpp
 
 HEADERS += 	$(ERPC_C_ROOT)/config/erpc_config.h \
 			$(ERPC_C_ROOT)/infra/arbitrated_client_manager.h \
@@ -86,18 +82,27 @@ HEADERS += 	$(ERPC_C_ROOT)/config/erpc_config.h \
 			$(ERPC_C_ROOT)/port/erpc_config_internal.h \
 			$(ERPC_C_ROOT)/port/erpc_port.h \
 			$(ERPC_C_ROOT)/port/erpc_threading.h \
-			$(ERPC_C_ROOT)/port/serial.h \
 			$(ERPC_C_ROOT)/setup/erpc_arbitrated_client_setup.h \
 			$(ERPC_C_ROOT)/setup/erpc_client_setup.h \
 			$(ERPC_C_ROOT)/setup/erpc_server_setup.h \
 			$(ERPC_C_ROOT)/setup/erpc_transport_setup.h \
-			$(ERPC_C_ROOT)/transports/inter_thread_buffer_transport.h \
-			$(ERPC_C_ROOT)/transports/serial_transport.h \
-			$(ERPC_C_ROOT)/transports/tcp_transport.h
+			$(ERPC_C_ROOT)/setup/erpc_mbf_setup.h
+
+ifeq ($(TARGET_OS),Linux)
+SOURCES += 	$(ERPC_C_ROOT)/setup/erpc_setup_sock_rpmsg.cpp \
+			$(ERPC_C_ROOT)/transports/sock_rpmsg_transport.cpp
+
+HEADERS += 	$(ERPC_C_ROOT)/transports/sock_rpmsg_transport.h
+else
+SOURCES += 	$(ERPC_C_ROOT)/setup/erpc_setup_sock_rpmsg_rtos.cpp \
+			$(ERPC_C_ROOT)/transports/sock_rpmsg_rtos_transport.cpp
+HEADERS += 	$(ERPC_C_ROOT)/transports/sock_rpmsg_rtos_transport.h
+endif
 
 MAKE_TARGET = $(TARGET_LIB)($(OBJECTS_ALL))
 
 include $(ERPC_ROOT)/mk/targets.mk
+
 
 $(TARGET_LIB)(%): %
 	@$(call printmessage,ar,Archiving, $(?F) in $(@F))

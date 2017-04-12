@@ -33,6 +33,7 @@ CFLAGS   += -std=gnu11 -D LINUX -D _GNU_SOURCE -Werror $(MARCH)
 YYFLAGS  += -Wno-other
 LLFLAGS  +=
 LDFLAGS += $(MARCH)
+INCLUDES += ${EXTRAINCLUDES}
 
 # Add boost library search path.
 # This is the defualt installation location by home brew.

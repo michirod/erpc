@@ -28,7 +28,7 @@ include mk/erpc_common.mk
 
 # Subdirectories to run make on.
 TESTDIR = test
-SUBDIRS = erpcgen $(TESTDIR)
+#SUBDIRS = erpcgen $(TESTDIR)
 
 # Default target.
 .PHONY: default

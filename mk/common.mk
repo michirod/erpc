@@ -49,12 +49,18 @@ this_makefile := $(firstword $(MAKEFILE_LIST))
 empty :=
 space := $(empty) $(empty)
 
+# CROSS COMPILATION
+compiler := $(strip $(CROSS_COMPILER))
+ifeq ($(compiler),)
+	compiler := $(lastword $(subst /, ,$(firstword $(CC))))
+endif
+
 #-------------------------------------------------------------------------------
 # OS
 #-------------------------------------------------------------------------------
 
 # Get the OS name. Known values are "Linux", "CYGWIN_NT-5.1", and "Darwin".
-os_name := $(shell uname -s)
+os_name := $(shell uname -s)/$(compiler)
 
 # Set to 1 if running on Darwin.
 is_darwin := $(and $(findstring Darwin,$(os_name)),1)

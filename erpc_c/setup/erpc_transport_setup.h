@@ -152,6 +152,21 @@ erpc_transport_t erpc_transport_rpmsg_rtos_init(int dev_id, int role);
 
 //@}
 
+//! @name sockRPMsg transport setup
+//@{
+
+/*!
+ * @brief Create an sockRPMsg transport.
+ */
+erpc_transport_t erpc_transport_sock_rpmsg_init(uint16_t port, uint16_t remote_vproc_id, bool serverRole);
+
+/*!
+ * @brief Create an sockRPMsgRTOS transport.
+ */
+erpc_transport_t erpc_transport_sock_rpmsg_rtos_init(uint16_t port, uint16_t remote_vproc_id, bool serverRole);
+
+//@}
+
 #ifdef __cplusplus
 }
 #endif

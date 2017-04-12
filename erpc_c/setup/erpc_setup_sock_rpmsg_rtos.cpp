@@ -1,7 +1,5 @@
 /*
- * Copyright (c) 2016, Freescale Semiconductor, Inc.
- * Copyright 2016 NXP
- * All rights reserved.
+ * Copyright (c) 2014-2016, Freescale Semiconductor, Inc.
  *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
@@ -13,7 +11,7 @@
  *   list of conditions and the following disclaimer in the documentation and/or
  *   other materials provided with the distribution.
  *
- * o Neither the name of the copyright holder nor the names of its
+ * o Neither the name of Freescale Semiconductor, Inc. nor the names of its
  *   contributors may be used to endorse or promote products derived from this
  *   software without specific prior written permission.
  *
@@ -29,51 +27,25 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef _ERPC_CONFIG_H_
-#define _ERPC_CONFIG_H_
+#include "manually_constructed.h"
+#include "sock_rpmsg_rtos_transport.h"
+#include "erpc_transport_setup.h"
 
-/*!
- * @addtogroup config
- * @{
- * @file
- */
+using namespace erpc;
 
 ////////////////////////////////////////////////////////////////////////////////
-// Declarations
+// Variables
 ////////////////////////////////////////////////////////////////////////////////
 
-//! @name Threading model options
-//@{
-#define ERPC_THREADS_NONE (0)     //!< No threads.
-#define ERPC_THREADS_PTHREADS (1) //!< POSIX pthreads.
-#define ERPC_THREADS_FREERTOS (2) //!< FreeRTOS.
-#define ERPC_THREADS_SYSBIOS (3)  //!< Sys/BIOS.
-//@}
+static ManuallyConstructed<sockRPMsgRTOSTransport> s_transport;
 
-//! @name Configuration options
-//@{
-
-//! @def ERPC_THREADS
-//!
-//! @brief Select threading model.
-//!
-//! Set to one of the @c ERPC_THREADS_x macros to specify the threading model used by eRPC.
-//!
-//! Leave commented out to attempt to auto-detect. Auto-detection works well for pthreads.
-//! FreeRTOS can be detected when building with compilers that support __has_include().
-//! Otherwise, the default is no threading.
-//#define ERPC_THREADS (ERPC_THREADS_FREERTOS)
-
-//! @def ERPC_DEFAULT_BUFFER_SIZE
-//!
-//! Uncomment to change the size of buffers allocated by BasicMessageBufferFactory in the client
-//! and server setup functions (@ref client_setup and @ref server_setup). The default size is 256.
-//#define ERPC_DEFAULT_BUFFER_SIZE (256)
-
-//@}
-
-/*! @} */
-#endif // _ERPC_CONFIG_H_
 ////////////////////////////////////////////////////////////////////////////////
-// EOF
+// Code
 ////////////////////////////////////////////////////////////////////////////////
+
+erpc_transport_t erpc_transport_sock_rpmsg_rtos_init(uint16_t port, bool serverRole)
+{
+    s_transport.construct();
+    s_transport->init(port, serverRole);
+    return reinterpret_cast<erpc_transport_t>(s_transport.get());
+}
