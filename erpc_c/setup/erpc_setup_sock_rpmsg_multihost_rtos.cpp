@@ -28,7 +28,7 @@
  */
 
 #include "manually_constructed.h"
-#include "sock_rpmsg_rtos_transport.h"
+#include "sock_rpmsg_multihost_rtos_transport.h"
 #include "erpc_transport_setup.h"
 
 using namespace erpc;
@@ -37,19 +37,19 @@ using namespace erpc;
 // Variables
 ////////////////////////////////////////////////////////////////////////////////
 
-static ManuallyConstructed<sockRPMsgRTOSTransport> s_transport;
+static ManuallyConstructed<sockRPMsgMultihostRTOSTransport> s_transport;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Code
 ////////////////////////////////////////////////////////////////////////////////
 
-erpc_transport_t erpc_transport_sock_rpmsg_rtos_init(uint16_t port, bool serverRole)
+erpc_transport_t erpc_transport_sock_rpmsg_multihost_rtos_init(uint16_t port, bool serverRole)
 {
     s_transport.construct();
     s_transport->init(port, serverRole);
     return reinterpret_cast<erpc_transport_t>(s_transport.get());
 }
 
-void erpc_transport_sock_rpmsg_rtos_deinit(){
+void erpc_transport_sock_rpmsg_multihost_rtos_deinit(){
     s_transport.destroy();
 }

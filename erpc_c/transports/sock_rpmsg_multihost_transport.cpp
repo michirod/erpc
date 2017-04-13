@@ -27,7 +27,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "sock_rpmsg_transport.h"
+#include "sock_rpmsg_multihost_transport.h"
 #include "errno.h"
 #include <new>
 #include "stdio.h"
@@ -38,31 +38,28 @@ using namespace std;
 
 using namespace erpc;
 
-int sockRPMsgTransport::sock_fd = -1;
-uint16_t sockRPMsgTransport::remote_port;
-uint16_t sockRPMsgTransport::remote_proc;
-
 ////////////////////////////////////////////////////////////////////////////////
 // Code
 ////////////////////////////////////////////////////////////////////////////////
 
-sockRPMsgTransport::sockRPMsgTransport()
-: Transport()
+sockRPMsgMultihostTransport::sockRPMsgMultihostTransport()
+: MultihostTransport()
 {
 }
 
-sockRPMsgTransport::~sockRPMsgTransport()
+sockRPMsgMultihostTransport::~sockRPMsgMultihostTransport()
 {
     close(sock_fd);
 }
 
-erpc_status_t sockRPMsgTransport::init(uint16_t port, uint16_t remote_vproc_id, bool serverRole)
+
+erpc_status_t sockRPMsgMultihostTransport::init(uint16_t port, uint16_t remote_vproc_id, bool serverRole)
 {
     int ret_value, new_fd;
     struct sockaddr_rpmsg sockaddr;
 
     sockaddr.family = AF_RPMSG;
-    sockaddr.vproc_id = remote_proc = remote_vproc_id;
+    sockaddr.vproc_id = remote_vproc_id;
 
     new_fd = socket(AF_RPMSG, SOCK_DGRAM, 0);
     if(new_fd < 0){
@@ -74,18 +71,11 @@ erpc_status_t sockRPMsgTransport::init(uint16_t port, uint16_t remote_vproc_id, 
         sockaddr.addr = port;
         ret_value = bind(new_fd, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
         if(ret_value < 0){
-    	    perror("Error");
+            perror("Error");
             return kErpcStatus_InitFailed;
         }
     } else {
-        sockaddr.addr = 0;
-        ret_value = bind(new_fd, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
-        if(ret_value < 0){
-    	    perror("Error");
-            return kErpcStatus_InitFailed;
-        }
-
-        remote_port = port;
+        return kErpcStatus_InvalidArgument;
     }
 
     sock_fd = new_fd;
@@ -93,7 +83,9 @@ erpc_status_t sockRPMsgTransport::init(uint16_t port, uint16_t remote_vproc_id, 
     return kErpcStatus_Success;
 }
 
-erpc_status_t sockRPMsgTransport::receive(MessageBuffer *message)
+
+
+erpc_status_t sockRPMsgMultihostTransport::select(MessageBuffer *message, int *client_id)
 {
     while (sock_fd < 0)
     {
@@ -113,14 +105,15 @@ erpc_status_t sockRPMsgTransport::receive(MessageBuffer *message)
         return kErpcStatus_ReceiveFailed;
     }
 
-    //XXX: this assumes only one remote can be contacted
-    remote_port = remote_addr.addr;
-    remote_proc = remote_addr.vproc_id;
+    (*client_id) = (remote_addr.vproc_id & 0xFFFF) | (remote_addr.addr & 0xFFFF) << 16;
+
+    printf("received message %s from %d:%d, client id: %d (%x)\n", freeBuffer,
+           remote_addr.vproc_id, remote_addr.addr, *client_id, *client_id);
 
     return kErpcStatus_Success;
 }
 
-erpc_status_t sockRPMsgTransport::send(MessageBuffer *message)
+erpc_status_t sockRPMsgMultihostTransport::send(const MessageBuffer *message, int client_id)
 {
     while (sock_fd < 0)
     {
@@ -129,14 +122,17 @@ erpc_status_t sockRPMsgTransport::send(MessageBuffer *message)
     int ret_value;
     sockaddr_rpmsg remote_addr;
 
-    remote_addr.addr = remote_port;
+    remote_addr.addr = (client_id >> 16) & 0xFFFF;
     remote_addr.family = AF_RPMSG;
-    remote_addr.vproc_id = remote_proc;
+    remote_addr.vproc_id = client_id & 0xFFFF;
+
+    printf("sending message %s to %d:%d, client id: %d (%x)\n", message->get(),
+           remote_addr.vproc_id, remote_addr.addr, client_id, client_id);
 
     ret_value = sendto(sock_fd, (void *)message->get(), message->getUsed(), 0,
                        (struct sockaddr *)&remote_addr, sizeof(remote_addr));
     if (ret_value < 0) {
-	    perror("Error");
+        perror("Error");
         switch (ret_value) {
         case -EINVAL:
         case -EMSGSIZE:
@@ -148,5 +144,6 @@ erpc_status_t sockRPMsgTransport::send(MessageBuffer *message)
             return kErpcStatus_SendFailed;
         }
     }
+    printf("message sent\n");
     return kErpcStatus_Success;
 }

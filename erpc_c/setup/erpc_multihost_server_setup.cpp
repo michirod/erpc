@@ -27,9 +27,16 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include "erpc_multihost_server_setup.h"
+#include "basic_codec.h"
 #include "manually_constructed.h"
-#include "sock_rpmsg_rtos_transport.h"
-#include "erpc_transport_setup.h"
+#include "multihost_server.h"
+#include <assert.h>
+#include <new>
+
+#if !(__embedded_cplusplus)
+using namespace std;
+#endif
 
 using namespace erpc;
 
@@ -37,19 +44,54 @@ using namespace erpc;
 // Variables
 ////////////////////////////////////////////////////////////////////////////////
 
-static ManuallyConstructed<sockRPMsgRTOSTransport> s_transport;
+// global server variables
+static ManuallyConstructed<MultihostServer> s_multihost_server;
+MultihostServer *g_multihost_server;
+
+static ManuallyConstructed<BasicCodecFactory> s_multihost_codecFactory;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Code
 ////////////////////////////////////////////////////////////////////////////////
 
-erpc_transport_t erpc_transport_sock_rpmsg_rtos_init(uint16_t port, bool serverRole)
+void erpc_multihost_server_init(erpc_transport_t transport, erpc_mbf_t message_buffer_factory)
 {
-    s_transport.construct();
-    s_transport->init(port, serverRole);
-    return reinterpret_cast<erpc_transport_t>(s_transport.get());
+    // Init factories.
+    s_multihost_codecFactory.construct();
+
+    // Init server with the provided transport.
+    s_multihost_server.construct();
+    s_multihost_server->setTransport(reinterpret_cast<MultihostTransport *>(transport));
+    s_multihost_server->setCodecFactory(s_multihost_codecFactory);
+    s_multihost_server->setMessageBufferFactory(reinterpret_cast<MessageBufferFactory *>(message_buffer_factory));
+    g_multihost_server = s_multihost_server;
 }
 
-void erpc_transport_sock_rpmsg_rtos_deinit(){
-    s_transport.destroy();
+void erpc_multihost_server_deinit()
+{
+    s_multihost_codecFactory.destroy();
+    s_multihost_server.destroy();
+}
+
+void erpc_add_service_to_multihost_server(void *service)
+{
+    if (service != NULL)
+    {
+        g_multihost_server->addService(static_cast<erpc::Service *>(service));
+    }
+}
+
+erpc_status_t erpc_multihost_server_run()
+{
+    return g_multihost_server->run();
+}
+
+erpc_status_t erpc_multihost_server_poll()
+{
+    return g_multihost_server->poll();
+}
+
+void erpc_multihost_server_stop()
+{
+    g_multihost_server->stop();
 }

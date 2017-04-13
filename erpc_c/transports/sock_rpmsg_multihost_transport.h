@@ -27,16 +27,17 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef _EMBEDDED_RPC__SOCK_RPMSG_RTOS_TRANSPORT_H_
-#define _EMBEDDED_RPC__SOCK_RPMSG_RTOS_TRANSPORT_H_
+#ifndef _EMBEDDED_RPC__SOCK_RPMSG_MULTIHOST_TRANSPORT_H_
+#define _EMBEDDED_RPC__SOCK_RPMSG_MULTIHOST_TRANSPORT_H_
 
 #include "message_buffer.h"
 #include "static_queue.h"
-#include "transport.h"
+#include "multihost_transport.h"
 
 extern "C" {
-#include "rpmsg_socket.h"
-#include "rpmsg_channels.h"
+#include <linux/rpmsg_socket.h>
+#include <sys/socket.h>
+#include <unistd.h>
 }
 
 /*!
@@ -51,11 +52,11 @@ extern "C" {
 
 namespace erpc {
 /*!
- * @brief Transport that uses sockRPMsgRTOS for interprocessor messaging.
+ * @brief Transport that uses sockRPMsgMultihost for interprocessor messaging.
  *
- * @ingroup sock_rpmsg_rtos_transport
+ * @ingroup sock_rpmsg_multihost_transport
  */
-class sockRPMsgRTOSTransport : public Transport
+class sockRPMsgMultihostTransport : public MultihostTransport
 {
 public:
     /*!
@@ -63,54 +64,57 @@ public:
      *
      * This function initializes object attributes.
      */
-    sockRPMsgRTOSTransport();
+    sockRPMsgMultihostTransport();
 
     /*!
      * @brief Codec destructor
      */
-    virtual ~sockRPMsgRTOSTransport();
+    virtual ~sockRPMsgMultihostTransport();
 
     /*!
-     * @brief Initialization of sockRPMsgRTOSTransport layer.
+     * @brief Initialization of sockRPMsgTransport layer.
      *
-     * Call init() for sockRPMsgRTOS.
+     * Call init() for sockRPMsg.
      *
-     * @param[in] rem_port sockRPMsgRTOS remote port
+     * @param[in] rem_port sockRPMsg remote port
      *
      * @retval kErpcStatus_Success When rpmsg init function was executed successfully.
      * @retval kErpcStatus_InitFailed When rpmsg init function wasn't executed successfully.
      */
-    virtual erpc_status_t init(uint16_t port, bool serverRole);
+    virtual erpc_status_t init(uint16_t port, uint16_t remote_vproc_id, bool serverRole);
 
     /*!
      * @brief Set message to first received message.
      *
      * In loop while no message come.
      *
-     * @param[in] message Message buffer, to which will be stored incoming message.
+     * @param[out] message Will return pointer to received message buffer.
+     * @param[out] client_id Will refer to client session.
      *
-     * @return kErpcStatus_Success
+     * @retval kErpcStatus_Success if receive ok,
+     * @retval kErpcStatus_ReceiveFailed if receive failed
      */
-    virtual erpc_status_t receive(MessageBuffer *message);
+    virtual erpc_status_t select(MessageBuffer *message, int *client_id);
 
     /*!
      * @brief Function to send prepared message.
      *
      * @param[in] message Pass message buffer to send.
+     * @param[in] client_id Specify destination client.
      *
+     * @retval kErpcStatus_InvalidArgument Wrong sendto arguments or message empty.
+     * @retval kErpcStatus_ServerIsDown Peer unreachable
      * @retval kErpcStatus_SendFailed Failed to send message buffer.
      * @retval kErpcStatus_Success Successfully sent all data.
      */
-    virtual erpc_status_t send(MessageBuffer *message);
+    virtual erpc_status_t send(const MessageBuffer *message, int client_id);
 
 protected:
-    static int sock_fd;
-    static uint16_t remote_port;
-    static bool server_role;
+    int sock_fd = -1;
 };
 
 } // namespace erpc
 
 /*! @} */
 
-#endif // _EMBEDDED_RPC__SOCK_RPMSG_RTOS_TRANSPORT_H_
+#endif // _EMBEDDED_RPC__SOCK_RPMSG_MULTIHOST_TRANSPORT_H_

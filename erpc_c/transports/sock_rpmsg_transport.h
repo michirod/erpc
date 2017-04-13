@@ -90,7 +90,8 @@ public:
      *
      * @param[in] message Message buffer, to which will be stored incoming message.
      *
-     * @return kErpcStatus_Success
+     * @retval kErpcStatus_Success if receive ok,
+     * @retval kErpcStatus_ReceiveFailed if receive failed
      */
     virtual erpc_status_t receive(MessageBuffer *message);
 
@@ -98,7 +99,10 @@ public:
      * @brief Function to send prepared message.
      *
      * @param[in] message Pass message buffer to send.
+     * @param[in] client_id Specify destination client.
      *
+     * @retval kErpcStatus_InvalidArgument Wrong sendto arguments or message empty.
+     * @retval kErpcStatus_ServerIsDown Peer unreachable
      * @retval kErpcStatus_SendFailed Failed to send message buffer.
      * @retval kErpcStatus_Success Successfully sent all data.
      */

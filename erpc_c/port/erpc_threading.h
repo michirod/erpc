@@ -165,8 +165,8 @@ private:
     static Thread *s_first;
 #elif ERPC_THREADS_IS(SYSBIOS)
     Task_Handle m_task;
-    GateMutex_Handle gc_mutex;
     Thread *m_next;
+    static GateMutex_Handle gc_mutex;
     static Thread *s_first;
     static GateAll_Handle list_lock;
     static Task_Handle gc_handle;

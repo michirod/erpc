@@ -42,6 +42,7 @@ using namespace erpc;
 
 int sockRPMsgRTOSTransport::sock_fd = -1;
 uint16_t sockRPMsgRTOSTransport::remote_port;
+bool sockRPMsgRTOSTransport::server_role = false;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Code
@@ -70,6 +71,8 @@ erpc_status_t sockRPMsgRTOSTransport::init(uint16_t port, bool serverRole)
         return kErpcStatus_InitFailed;
     }
 
+    server_role = serverRole;
+
     if(serverRole){
         sockaddr.addr = port;
         ret_value = rpmsg_socket_bind(new_fd, &sockaddr);
@@ -90,6 +93,8 @@ erpc_status_t sockRPMsgRTOSTransport::init(uint16_t port, bool serverRole)
         remote_port = port;
     }
 
+    fl_printf("new socket created: %d:%d", new_fd, sockaddr.addr);
+
     sock_fd = new_fd;
 
     return kErpcStatus_Success;
@@ -107,19 +112,29 @@ erpc_status_t sockRPMsgRTOSTransport::receive(MessageBuffer *message)
     uint32_t length = message->getLength();
     uint8_t *freeBuffer = message->get();
 
+
+    sockaddr_rpmsg local_addr;
+    rpmsg_socket_getsockname(sock_fd, &local_addr);
+    fl_printf("waiting for message on socket %d:%d", sock_fd, local_addr.addr);
+
+
     ret_value = rpmsg_socket_recvfrom(sock_fd, freeBuffer, length, &remote_addr);
     if(ret_value < 0){
         fl_printf("CPU1: ERROR receiving message: %d\r\n", ret_value);
         return kErpcStatus_ReceiveFailed;
     }
 
-    //XXX: this assumes only one remote can be contacted
-    remote_port = remote_addr.addr;
+    fl_printf("received message %s from %d:%d", freeBuffer, remote_addr.vproc_id, remote_addr.addr);
+
+    if(server_role){
+    //XXX: this assumes only one remote can be contacted at a time
+        remote_port = remote_addr.addr;
+    }
 
     return kErpcStatus_Success;
 }
 
-erpc_status_t sockRPMsgRTOSTransport::send(const MessageBuffer *message)
+erpc_status_t sockRPMsgRTOSTransport::send(MessageBuffer *message)
 {
     while (sock_fd < 0)
     {
@@ -132,11 +147,15 @@ erpc_status_t sockRPMsgRTOSTransport::send(const MessageBuffer *message)
     remote_addr.family = AF_RPMSG;
     remote_addr.vproc_id = 0;
 
+    fl_printf("sending message %s to %d:%d", message->get(), remote_addr.vproc_id, remote_addr.addr);
+
     ret_value = rpmsg_socket_sendto(sock_fd, (void *)message->get(), message->getUsed(), &remote_addr);
     if(ret_value < 0){
         fl_printf("CPU1: ERROR sending message: %d\r\n", ret_value);
         return kErpcStatus_SendFailed;
     }
+
+    fl_printf("message sent");
 
     return kErpcStatus_Success;
 }

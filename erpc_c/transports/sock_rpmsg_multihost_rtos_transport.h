@@ -27,12 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef _EMBEDDED_RPC__SOCK_RPMSG_RTOS_TRANSPORT_H_
-#define _EMBEDDED_RPC__SOCK_RPMSG_RTOS_TRANSPORT_H_
+#ifndef _EMBEDDED_RPC__SOCK_RPMSG_MULTIHOST_RTOS_TRANSPORT_H_
+#define _EMBEDDED_RPC__SOCK_RPMSG_MULTIHOST_RTOS_TRANSPORT_H_
 
 #include "message_buffer.h"
 #include "static_queue.h"
-#include "transport.h"
+#include "multihost_transport.h"
 
 extern "C" {
 #include "rpmsg_socket.h"
@@ -55,7 +55,7 @@ namespace erpc {
  *
  * @ingroup sock_rpmsg_rtos_transport
  */
-class sockRPMsgRTOSTransport : public Transport
+class sockRPMsgMultihostRTOSTransport : public MultihostTransport
 {
 public:
     /*!
@@ -63,12 +63,12 @@ public:
      *
      * This function initializes object attributes.
      */
-    sockRPMsgRTOSTransport();
+    sockRPMsgMultihostRTOSTransport();
 
     /*!
      * @brief Codec destructor
      */
-    virtual ~sockRPMsgRTOSTransport();
+    virtual ~sockRPMsgMultihostRTOSTransport();
 
     /*!
      * @brief Initialization of sockRPMsgRTOSTransport layer.
@@ -87,30 +87,34 @@ public:
      *
      * In loop while no message come.
      *
-     * @param[in] message Message buffer, to which will be stored incoming message.
+     * @param[out] message Will return pointer to received message buffer.
+     * @param[out] client_id Will refer to client session.
      *
-     * @return kErpcStatus_Success
+     * @retval kErpcStatus_Success if receive ok,
+     * @retval kErpcStatus_ReceiveFailed if receive failed
      */
-    virtual erpc_status_t receive(MessageBuffer *message);
+    virtual erpc_status_t select(MessageBuffer *message, int *client_id);
 
     /*!
      * @brief Function to send prepared message.
      *
      * @param[in] message Pass message buffer to send.
+     * @param[in] client_id Specify destination client.
      *
+     * @retval kErpcStatus_InvalidArgument Wrong sendto arguments or message empty.
+     * @retval kErpcStatus_ServerIsDown Peer unreachable
      * @retval kErpcStatus_SendFailed Failed to send message buffer.
      * @retval kErpcStatus_Success Successfully sent all data.
      */
-    virtual erpc_status_t send(MessageBuffer *message);
+    virtual erpc_status_t send(const MessageBuffer *message, int client_id);
 
 protected:
-    static int sock_fd;
-    static uint16_t remote_port;
-    static bool server_role;
+    int sock_fd;
+    bool server_role;
 };
 
 } // namespace erpc
 
 /*! @} */
 
-#endif // _EMBEDDED_RPC__SOCK_RPMSG_RTOS_TRANSPORT_H_
+#endif // _EMBEDDED_RPC__SOCK_RPMSG_MULTIHOST_RTOS_TRANSPORT_H_

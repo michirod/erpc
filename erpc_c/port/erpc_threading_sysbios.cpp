@@ -46,6 +46,7 @@ using namespace erpc;
 
 Thread *Thread::s_first = NULL;
 GateAll_Handle Thread::list_lock = NULL;
+GateMutex_Handle Thread::gc_mutex = NULL;
 
 Task_Handle Thread::gc_handle = NULL;
 Mailbox_Handle Thread::gc_list = NULL;
@@ -150,6 +151,7 @@ void Thread::start(void *arg)
     params.stackSize = ((m_stackSize + sizeof(uint32_t) - 1) / sizeof(uint32_t)); // Round up number of words.;
     params.priority = m_priority;
     params.arg0 = (UArg) m_arg;
+    params.arg1 = (UArg) this;
 
     IArg key = GateAll_enter(list_lock);
 
@@ -240,10 +242,10 @@ Void Thread::threadEntryPointStub(UArg arg0, UArg arg1)
 
     GateAll_leave(list_lock, key);
 
-    Task_Handle t_task = m_task;
+    Task_Handle t_task = _this->m_task;
     key = GateMutex_enter(gc_mutex);
-    if(m_task != NULL){
-        m_task = NULL;
+    if(_this->m_task != NULL){
+        _this->m_task = NULL;
     } else {
         t_task = NULL;
     }
