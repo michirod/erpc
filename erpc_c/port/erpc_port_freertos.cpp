@@ -37,6 +37,7 @@
 using namespace std;
 #endif
 
+#ifndef XILINX_SDK
 #if defined(__CC_ARM) /* Keil MDK */
 void *operator new(std::size_t count) throw(std::bad_alloc)
 {
@@ -110,6 +111,17 @@ void operator delete[](void *ptr)
 }
 #endif
 
+/* Provide function for pure virtual call to avoid huge demangling code being linked in ARM GCC */
+#if ((defined(__GNUC__)) && (defined(__arm__)))
+extern "C" void __cxa_pure_virtual()
+{
+    while (1)
+        ;
+}
+#endif
+
+#endif // XILINX_SDK
+
 void *erpc_malloc(size_t size)
 {
     void *p = pvPortMalloc(size);
@@ -120,12 +132,3 @@ void erpc_free(void *ptr)
 {
     vPortFree(ptr);
 }
-
-/* Provide function for pure virtual call to avoid huge demangling code being linked in ARM GCC */
-#if ((defined(__GNUC__)) && (defined(__arm__)))
-extern "C" void __cxa_pure_virtual()
-{
-    while (1)
-        ;
-}
-#endif

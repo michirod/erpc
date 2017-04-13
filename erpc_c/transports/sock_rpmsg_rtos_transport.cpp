@@ -33,6 +33,7 @@
 #include "rpmsg_socket.h"
 #include "rpmsg_channels.h"
 #include "rpmsg_al.h"
+#include <errno.h>
 
 #if !(__embedded_cplusplus)
 using namespace std;

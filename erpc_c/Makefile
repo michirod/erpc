@@ -63,6 +63,8 @@ SOURCES += 	$(ERPC_C_ROOT)/infra/basic_codec.cpp \
 			$(ERPC_C_ROOT)/port/erpc_threading_sysbios.cpp \
 			$(ERPC_C_ROOT)/setup/erpc_client_setup.cpp \
 			$(ERPC_C_ROOT)/setup/erpc_server_setup.cpp \
+			$(ERPC_C_ROOT)/infra/multihost_server.cpp \
+			$(ERPC_C_ROOT)/setup/erpc_multihost_server_setup.cpp \
 			$(ERPC_C_ROOT)/setup/erpc_setup_mbf_dynamic.cpp
 
 HEADERS += 	$(ERPC_C_ROOT)/config/erpc_config.h \
@@ -76,6 +78,7 @@ HEADERS += 	$(ERPC_C_ROOT)/config/erpc_config.h \
 			$(ERPC_C_ROOT)/infra/manually_constructed.h \
 			$(ERPC_C_ROOT)/infra/message_buffer.h \
 			$(ERPC_C_ROOT)/infra/server.h \
+			$(ERPC_C_ROOT)/infra/simple_server.h \
 			$(ERPC_C_ROOT)/infra/static_queue.h \
 			$(ERPC_C_ROOT)/infra/transport_arbitrator.h \
 			$(ERPC_C_ROOT)/infra/transport.h \
@@ -86,25 +89,27 @@ HEADERS += 	$(ERPC_C_ROOT)/config/erpc_config.h \
 			$(ERPC_C_ROOT)/setup/erpc_client_setup.h \
 			$(ERPC_C_ROOT)/setup/erpc_server_setup.h \
 			$(ERPC_C_ROOT)/setup/erpc_transport_setup.h \
+			$(ERPC_C_ROOT)/infra/multihost_server.h \
+			$(ERPC_C_ROOT)/infra/multihost_transport.h \
+			$(ERPC_C_ROOT)/setup/erpc_multihost_server_setup.h \
 			$(ERPC_C_ROOT)/setup/erpc_mbf_setup.h
 
 ifeq ($(TARGET_OS),Linux)
-SOURCES += 	$(ERPC_C_ROOT)/infra/multihost_server.cpp \
-			$(ERPC_C_ROOT)/setup/erpc_multihost_server_setup.cpp \
-			$(ERPC_C_ROOT)/setup/erpc_setup_sock_rpmsg.cpp \
+SOURCES += 	$(ERPC_C_ROOT)/setup/erpc_setup_sock_rpmsg.cpp \
 			$(ERPC_C_ROOT)/setup/erpc_setup_sock_rpmsg_multihost.cpp \
 			$(ERPC_C_ROOT)/transports/sock_rpmsg_transport.cpp \
 			$(ERPC_C_ROOT)/transports/sock_rpmsg_multihost_transport.cpp 
 
-HEADERS += 	$(ERPC_C_ROOT)/infra/multihost_server.h \
-			$(ERPC_C_ROOT)/infra/multihost_transport.h \
-			$(ERPC_C_ROOT)/setup/erpc_multihost_server_setup.h \
-			$(ERPC_C_ROOT)/transports/sock_rpmsg_transport.h \
+HEADERS += 	$(ERPC_C_ROOT)/transports/sock_rpmsg_transport.h \
 			$(ERPC_C_ROOT)/transports/sock_rpmsg_multihost_transport.h
 else
 SOURCES += 	$(ERPC_C_ROOT)/setup/erpc_setup_sock_rpmsg_rtos.cpp \
-			$(ERPC_C_ROOT)/transports/sock_rpmsg_rtos_transport.cpp
-HEADERS += 	$(ERPC_C_ROOT)/transports/sock_rpmsg_rtos_transport.h
+			$(ERPC_C_ROOT)/setup/erpc_setup_sock_rpmsg_multihost_rtos.cpp \
+			$(ERPC_C_ROOT)/transports/sock_rpmsg_rtos_transport.cpp \
+			$(ERPC_C_ROOT)/transports/sock_rpmsg_multihost_rtos_transport.cpp
+
+HEADERS += 	$(ERPC_C_ROOT)/transports/sock_rpmsg_rtos_transport.h \
+			$(ERPC_C_ROOT)/transports/sock_rpmsg_multihost_rtos_transport.h
 endif
 
 MAKE_TARGET = $(TARGET_LIB)($(OBJECTS_ALL))
