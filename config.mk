@@ -18,9 +18,9 @@ LIBERPC_LD := ${LD}
 
 all:
 
-${liberpc_includes}: ${liberpc_out}
+${liberpc_includes}:
 	make -C ${mkfile_path}erpc_c install_headers PREFIX=${LIBERPCPREFIX}
 
-${liberpc_out}: ${liberpc_srcs}
+${liberpc_out}: ${liberpc_srcs} ${liberpc_includes}
 	make -C ${mkfile_path} erpc AR="${LIBERPC_AR}" CC="${LIBERPC_CC}" CXX="${LIBERPC_CXX}" LD="${LIBERPC_LD}"
 
