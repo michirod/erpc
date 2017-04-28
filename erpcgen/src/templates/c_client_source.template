@@ -6,6 +6,7 @@
 
 #include "{$commonHeaderName}"
 #include "client_manager.h"
+#include "transport.h"
 #include "erpc_port.h"
 
 using namespace erpc;
@@ -23,6 +24,10 @@ extern ClientManager *g_client;
 {
 {%   if errVar != ""  %}
     erpc_status_t {$errVar}kErpcStatus_Success;
+
+{% endif %}
+{% if iface.generateDynamicTransport %}
+    Transport * inner_transport = reinterpret_cast<Transport *>(transport);
 
 {%   endif %}
     // Get a new request.

@@ -30,7 +30,7 @@ public:
 private:
 {%  for fn in iface.functions %}
     /*! @brief Server shim for {$fn.name} of {$iface.name} interface. */
-    erpc_status_t {$fn.name}_shim(erpc::Codec * codec, erpc::MessageBufferFactory *messageFactory, erpc::Transport *transport, uint32_t sequence);{$loop.addNewLineIfNotLast}
+    erpc_status_t {$fn.name}_shim(erpc::Codec * codec, erpc::MessageBufferFactory *messageFactory{% if iface.generateDynamicTransport %}, erpc::Transport *inner_transport{% endif %}, uint32_t sequence);{$loop.addNewLineIfNotLast}
 {%  endfor -- fn %}
 };
 {% endfor -- iface %}

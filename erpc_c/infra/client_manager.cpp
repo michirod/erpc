@@ -54,7 +54,8 @@ RequestContext ClientManager::createRequest(bool isOneway)
     return RequestContext(++m_sequence, codec, isOneway);
 }
 
-erpc_status_t ClientManager::performRequest(RequestContext &request){
+erpc_status_t ClientManager::performRequest(RequestContext &request)
+{
     return performRequest(m_transport, request);
 }
 

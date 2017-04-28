@@ -28,7 +28,7 @@
 
 {% def f_clientEncode(iface, fn) %}
 {% if iface.generateDynamicTransport %}
-{%   set requestTransport = "transport, " %}
+{%   set requestTransport = "inner_transport, " %}
 {% else %}
 {%   set requestTransport = "" %}
 {% endif %}

@@ -6,6 +6,8 @@
 
 #include "{$serverHeaderName}"
 #include <new>
+#include "transport.h"
+#include "erpc_transport_setup.h"
 #include "erpc_port.h"
 
 using namespace erpc;
@@ -18,11 +20,14 @@ using namespace std;
 // Call the correct server shim based on method unique ID.
 erpc_status_t {$iface.serviceClassName}::handleInvocation(uint32_t methodId, uint32_t sequence, Codec * codec, MessageBufferFactory *messageFactory, Transport *transport)
 {
+{% if !iface.generateDynamicTransport %}
+    (void)(transport);
+{% endif %}
     switch (methodId)
     {
 {%  for fn in iface.functions %}
         case k{$iface.name}_{$fn.name}_id:
-            return {$fn.name}_shim(codec, messageFactory, transport, sequence);
+            return {$fn.name}_shim(codec, messageFactory{% if iface.generateDynamicTransport %}, transport{% endif %}, sequence);
 
 {%  endfor -- fn %}
         default:
@@ -32,10 +37,14 @@ erpc_status_t {$iface.serviceClassName}::handleInvocation(uint32_t methodId, uin
 {%  for fn in iface.functions %}
 
 // Server shim for {$fn.name} of {$iface.name} interface.
-erpc_status_t {$iface.serviceClassName}::{$fn.name}_shim(Codec * codec, MessageBufferFactory *messageFactory, Transport *transport, uint32_t sequence)
+erpc_status_t {$iface.serviceClassName}::{$fn.name}_shim(Codec * codec, MessageBufferFactory *messageFactory{% if iface.generateDynamicTransport %}, Transport *inner_transport{% endif %}, uint32_t sequence)
 {
 {% if errVar != "" %}
     erpc_status_t {$errVar}kErpcStatus_Success;
+
+{% endif %}
+{% if iface.generateDynamicTransport %}
+    erpc_transport_t transport = reinterpret_cast<erpc_transport_t>(inner_transport);
 
 {% endif %}
 {%   for param in fn.parameters %}
