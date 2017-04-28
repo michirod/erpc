@@ -16,13 +16,13 @@ using namespace std;
 {% for iface in interfaces -- service subclass method impl %}
 
 // Call the correct server shim based on method unique ID.
-erpc_status_t {$iface.serviceClassName}::handleInvocation(uint32_t methodId, uint32_t sequence, Codec * codec, MessageBufferFactory *messageFactory)
+erpc_status_t {$iface.serviceClassName}::handleInvocation(uint32_t methodId, uint32_t sequence, Codec * codec, MessageBufferFactory *messageFactory, Transport *transport)
 {
     switch (methodId)
     {
 {%  for fn in iface.functions %}
         case k{$iface.name}_{$fn.name}_id:
-            return {$fn.name}_shim(codec, messageFactory, sequence);
+            return {$fn.name}_shim(codec, messageFactory, transport, sequence);
 
 {%  endfor -- fn %}
         default:
@@ -32,7 +32,7 @@ erpc_status_t {$iface.serviceClassName}::handleInvocation(uint32_t methodId, uin
 {%  for fn in iface.functions %}
 
 // Server shim for {$fn.name} of {$iface.name} interface.
-erpc_status_t {$iface.serviceClassName}::{$fn.name}_shim(Codec * codec, MessageBufferFactory *messageFactory, uint32_t sequence)
+erpc_status_t {$iface.serviceClassName}::{$fn.name}_shim(Codec * codec, MessageBufferFactory *messageFactory, Transport *transport, uint32_t sequence)
 {
 {% if errVar != "" %}
     erpc_status_t {$errVar}kErpcStatus_Success;

@@ -85,7 +85,7 @@ erpc_status_t Server::processMessage(Codec *codec, message_type_t &msgType)
         return kErpcStatus_InvalidArgument;
     }
 
-    return service->handleInvocation(methodId, sequence, codec, m_messageFactory);
+    return service->handleInvocation(methodId, sequence, codec, m_messageFactory, m_transport);
 }
 
 Service *Server::findServiceWithId(uint32_t serviceId)

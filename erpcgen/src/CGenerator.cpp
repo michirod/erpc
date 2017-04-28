@@ -1105,6 +1105,13 @@ std::string CGenerator::getFunctionServerCall(Function *fn)
 
     auto params = fn->getParameters().getMembers();
 
+    if(fn->isDynamicTransportEnabled()){
+        proto += "transport";
+        if(params.size()){
+            proto += ", ";
+        }
+    }
+
     if (params.size())
     {
         int n = 0;
