@@ -149,8 +149,12 @@ Generator::interfaceLists_t Generator::makeInterfacesTemplateData()
         Interface *iface = dynamic_cast<Interface *>(it);
         assert(iface);
         data_map ifaceInfo;
+
+        iface->setDynamicTransport(!it->findAnnotation(STATIC_TRANSPORT_ANNOTATION));
+
         ifaceInfo["name"] = make_data(iface->getName());
         ifaceInfo["id"] = data_ptr(iface->getUniqueId());
+        ifaceInfo["generateDynamicTransport"] = iface->isDynamicTransportEnabled();
 
         getInterfaceComments(iface, ifaceInfo);
 
@@ -185,6 +189,7 @@ data_list Generator::getFunctionsTemplateData(Interface *iface)
     int j = 0;
     for (auto fit : iface->getFunctions())
     {
+        fit->setDynamicTransport(iface->isDynamicTransportEnabled());
         fns.push_back(make_data(getFunctionTemplateData(fit, j++)));
     }
     return fns;

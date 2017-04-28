@@ -54,10 +54,14 @@ RequestContext ClientManager::createRequest(bool isOneway)
     return RequestContext(++m_sequence, codec, isOneway);
 }
 
-erpc_status_t ClientManager::performRequest(RequestContext &request)
+erpc_status_t ClientManager::performRequest(RequestContext &request){
+    return performRequest(m_transport, request);
+}
+
+erpc_status_t ClientManager::performRequest(Transport *transport, RequestContext &request)
 {
     // Send invocation request to server.
-    erpc_status_t err = m_transport->send(request.getCodec()->getBuffer());
+    erpc_status_t err = transport->send(request.getCodec()->getBuffer());
     if (err)
     {
         return err;
@@ -67,7 +71,7 @@ erpc_status_t ClientManager::performRequest(RequestContext &request)
     if (!request.isOneway())
     {
         // Receive reply.
-        err = m_transport->receive(request.getCodec()->getBuffer());
+        err = transport->receive(request.getCodec()->getBuffer());
         if (err)
         {
             return err;

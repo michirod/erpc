@@ -105,6 +105,21 @@ public:
     void setUniqueId(uint32_t newId) { m_uniqueId = newId; }
 
     /*!
+     * @brief This function returns true/false, when interface has dynamic transport enabled.
+     *
+     * @retval true Interface has dynamic transport enabled.
+     * @retval false Interface has static transport enabled.
+     */
+    bool isDynamicTransportEnabled() const { return m_dynamicTransport; }
+
+    /*!
+     * @brief This function set true/false, when interface has dynamic/static transport enabled.
+     *
+     * @param[in] dynamicTransportEnabled Set, if interface has dynamic transport enabled
+     */
+    void setDynamicTransport(bool dynamicTransportEnabled) { m_dynamicTransport = dynamicTransportEnabled; }
+
+    /*!
      * @brief This function returns description about the interface.
      *
      * @return String description about interface.
@@ -125,6 +140,7 @@ protected:
     SymbolScope m_scope;           /*!< Scope which interface belongs to. */
     function_vector_t m_functions; /*!< Vector of interface functions. */
     uint32_t m_uniqueId;           /*!< Interface unique id. */
+    bool m_dynamicTransport;       /*!< If true, transport must be read from input and passed to performRequest. */
 
     static uint32_t s_idCounter; /*!< Interface id counter. Each interface will increase this. */
 };

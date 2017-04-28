@@ -1147,6 +1147,14 @@ std::string CGenerator::getFunctionPrototype(Function *fn)
     proto += "(";
 
     auto params = fn->getParameters().getMembers();
+
+    if(fn->isDynamicTransportEnabled()){
+        proto += "erpc_transport_t transport";
+        if(params.size()){
+            proto += ", ";
+        }
+    }
+
     if (params.size())
     {
         int n = 0;
@@ -1198,7 +1206,7 @@ std::string CGenerator::getFunctionPrototype(Function *fn)
             ++n;
         }
     }
-    else
+    else if(!fn->isDynamicTransportEnabled())
     {
         proto += "void";
     }

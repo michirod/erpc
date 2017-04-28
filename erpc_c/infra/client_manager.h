@@ -121,6 +121,14 @@ public:
     virtual erpc_status_t performRequest(RequestContext &request);
 
     /*!
+     * @brief This function performs request on specified transport.
+     *
+     * @param[in] transport Transport to use to perform request.
+     * @param[in] request Request context to perform.
+     */
+    virtual erpc_status_t performRequest(Transport *transport, RequestContext &request);
+
+    /*!
      * @brief This function releases request context.
      *
      * @param[in] request Request context to release.

@@ -20,7 +20,6 @@
 {% endif %}
 
 {# Code #}
-{%   set s_performRequest = infraErrVar & "g_client->performRequest(request);" %}
 {%   set s_endWriteMessage = infraErrVar & "codec->endWriteMessage();" %}
 {%   set s_startReadStruct = infraErrVar & "codec->startReadStruct();" %}
 {%   set s_endReadStruct = infraErrVar & "codec->endReadStruct();" %}
@@ -28,6 +27,12 @@
 {%   set s_prepareServerBufferForSend = infraErrVar & "messageFactory->prepareServerBufferForSend(codec->getBuffer());" %}
 
 {% def f_clientEncode(iface, fn) %}
+{% if iface.generateDynamicTransport %}
+{%   set requestTransport = "transport, " %}
+{% else %}
+{%   set requestTransport = "" %}
+{% endif %}
+{%   set s_performRequest = infraErrVar & "g_client->performRequest(" & requestTransport & "request);" %}
 {$addInfraErrorChecks("    ", f_clientStartWriteMessage(fn.isReturnValue, iface.name, fn.name))}
 {%   if fn.isSendValue %}
 {%    for param in fn.parametersTo2Core if not param.lengthForMember %}

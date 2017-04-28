@@ -74,4 +74,7 @@
 //! Place all types definitions (e.g. typedef, structs, etc.) into one file
 #define TYPES_HEADER_ANNOTATION "types_header"
 
+//! Use global transport and do not add transport to generated functions parameters
+#define STATIC_TRANSPORT_ANNOTATION "static_transport"
+
 #endif /* _EMBEDDED_RPC__ANNOTATIONS_H_ */

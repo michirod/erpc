@@ -64,6 +64,7 @@ public:
     , m_returnType(nullptr)
     , m_isOneway(false)
     , m_uniqueId(++s_idCounter)
+    , m_dynamicTransport(false)
     {
     }
 
@@ -81,6 +82,7 @@ public:
     , m_returnType(nullptr)
     , m_isOneway(false)
     , m_uniqueId(uniqueId)
+    , m_dynamicTransport(false)
     {
         s_idCounter = uniqueId;
     }
@@ -122,6 +124,21 @@ public:
     void setIsOneway(bool isOneway) { m_isOneway = isOneway; }
 
     /*!
+     * @brief This function returns true/false, when function has dynamic transport enabled.
+     *
+     * @retval true Function has dynamic transport enabled.
+     * @retval false Function has static transport enabled.
+     */
+    bool isDynamicTransportEnabled() const { return m_dynamicTransport; }
+
+    /*!
+     * @brief This function set true/false, when function has dynamic/static transport enabled.
+     *
+     * @param[in] dynamicTransportEnabled Set, if function has dynamic transport enabled
+     */
+    void setDynamicTransport(bool dynamicTransportEnabled) { m_dynamicTransport = dynamicTransportEnabled; }
+
+    /*!
      * @brief This function returns function unique id.
      *
      * @return Function unique id.
@@ -156,6 +173,7 @@ protected:
     DataType *m_returnType;  /*!< Function return data type. */
     bool m_isOneway;         /*!< If false then communication is bidirectional. */
     uint32_t m_uniqueId;     /*!< Function unique id. */
+    bool m_dynamicTransport; /*!< If true, transport must be read from input and passed to performRequest. */
 
     static uint32_t s_idCounter; /*!< Function id counter. Each function will increase this. */
 };
