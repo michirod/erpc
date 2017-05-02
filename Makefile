@@ -38,6 +38,10 @@ default: erpcgen erpc
 erpc:
 	@$(MAKE) $(silent_make) -j$(MAKETHREADS) -r -C erpc_c
 
+.PHONY: portmapper
+portmapper:
+	@$(MAKE) $(silent_make) -j$(MAKETHREADS) -r -C portmapper_server
+
 .PHONY: install
 install: erpc erpc_c erpcgen
 	@$(MAKE) $(silent_make) -j$(MAKETHREADS) -r -C erpc_c install

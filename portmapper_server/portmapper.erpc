@@ -1,0 +1,30 @@
+program erpc_portmapper
+
+enum pm_protocols {
+    DGRAM
+    SEQPKT
+    PROTOCOLS_COUNT
+}
+
+struct pm_entry {
+    uint32 program_id
+    pm_protocols protocol
+    int16 core_id
+    uint16 port
+}
+
+const uint16 portmapper_port = 111
+
+type pm_entry_list = list<pm_entry>
+
+@static_transport
+interface portmapper {
+    register_service(uint32 program_id, pm_protocols protocol, int16 core_id, uint16 port) -> bool
+    register_entry(pm_entry entry) -> bool
+    
+    unregister_service(uint32 program_id, pm_protocols protocol, int16 core_id, uint16 port) -> bool
+    unregister_entry(pm_entry entry) -> bool
+
+    lookup(uint32 program_id) -> pm_entry_list
+    lookup_proto(uint32 program_id, pm_protocols protocol) -> pm_entry_list
+}
