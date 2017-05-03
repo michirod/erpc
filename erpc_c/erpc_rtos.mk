@@ -31,6 +31,11 @@ erpc_port_hdrs +=	$(patsubst %.cpp,%.h,${erpc_port_srcs}) \
 					${mkfile_path}port/erpc_threading.h
 
 
+erpc_portmapper_srcs += ${mkfile_path}portmapper/erpc_portmapper_client.cpp
+
+erpc_portmapper_hdrs += ${mkfile_path}portmapper/erpc_portmapper.h
+
+
 erpc_setup_srcs += 	${mkfile_path}setup/erpc_client_setup.cpp \
 					${mkfile_path}setup/erpc_multihost_server_setup.cpp \
 					${mkfile_path}setup/erpc_server_setup.cpp \
@@ -50,7 +55,7 @@ erpc_transports_srcs += ${mkfile_path}transports/sock_rpmsg_multihost_rtos_trans
 erpc_transports_hdrs += $(patsubst %.cpp,%.h,${erpc_transport_srcs}) \
 
 
-erpc_srcs = ${erpc_config_srcs} ${erpc_infra_srcs} ${erpc_port_srcs} ${erpc_setup_srcs} ${erpc_transports_srcs}
-erpc_hdrs = ${erpc_config_hdrs} ${erpc_infra_hdrs} ${erpc_port_hdrs} ${erpc_setup_hdrs} ${erpc_transports_hdrs}
-erpc_includes = ${mkfile_path}config ${mkfile_path}infra ${mkfile_path}port ${mkfile_path}setup ${mkfile_path}transports
+erpc_srcs = ${erpc_config_srcs} ${erpc_infra_srcs} ${erpc_port_srcs} ${erpc_portmapper_srcs} ${erpc_setup_srcs} ${erpc_transports_srcs}
+erpc_hdrs = ${erpc_config_hdrs} ${erpc_infra_hdrs} ${erpc_port_hdrs} ${erpc_portmapper_hdrs} ${erpc_setup_hdrs} ${erpc_transports_hdrs}
+erpc_includes = ${mkfile_path}config ${mkfile_path}infra ${mkfile_path}port ${mkfile_path}portmapper ${mkfile_path}setup ${mkfile_path}transports
 

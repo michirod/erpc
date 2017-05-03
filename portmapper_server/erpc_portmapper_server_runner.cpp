@@ -12,12 +12,12 @@
 #include <list>
 #include <string.h>
 
-#define fill_pm_entry(_e, _prog, _proto, _r) ({ \
-    _e->program_id = _prog; \
-    _e->protocol = _proto; \
-    _e->core_id = _r->core_id; \
-    _e->port = _r->port; \
-    _e += sizeof(pm_entry); \
+#define fill_pm_entry(_e, _prog, _proto, _r, _cnt) ({ \
+    _e[_cnt].program_id = _prog; \
+    _e[_cnt].protocol = _proto; \
+    _e[_cnt].core_id = _r->core_id; \
+    _e[_cnt].port = _r->port; \
+    _cnt++; \
 })
 
 /*********************************
@@ -38,11 +38,12 @@ pm_map_t pm_map;
  * Portmapper server functions
  *******************************/
 
-bool pm_register_service(uint32_t program_id, pm_protocols protocol, int16_t core_id, uint16_t port){
-    pm_entry_clist entries;
+bool pm_register_service(erpc_transport_t transport, uint32_t program_id, pm_protocols protocol, uint16_t port){
+    pm_entry_clist *entries;
     pm_map_t::iterator mit;
     pm_entry_clist::iterator lit;
     bool good = true;
+    int16_t core_id = (int16_t) ((int)transport & 0xFFFF);
 
     if(protocol >= PROTOCOLS_COUNT){
         return false;
@@ -52,12 +53,12 @@ bool pm_register_service(uint32_t program_id, pm_protocols protocol, int16_t cor
     if(mit == pm_map.end()){
         pm_entry_clist * protocol_entries = new pm_entry_clist[PROTOCOLS_COUNT];
         pm_map[program_id] = protocol_entries;
-        entries = protocol_entries[protocol];
+        entries = &(protocol_entries[protocol]);
     } else {
-        entries = pm_map[program_id][protocol];
+        entries = &(pm_map[program_id][protocol]);
     }
 
-    for(lit = entries.begin(); lit != entries.end(); lit ++){
+    for(lit = entries->begin(); lit != entries->end(); lit ++){
         if((*lit)->core_id == core_id && (*lit)->port == port){
             good = false;
             break;
@@ -68,17 +69,18 @@ bool pm_register_service(uint32_t program_id, pm_protocols protocol, int16_t cor
         remote_entry *remote = (remote_entry *) malloc(sizeof(remote_entry));
         remote->core_id = core_id;
         remote->port = port;
-        entries.push_front(remote);
+        entries->push_front(remote);
     }
 
     return good;
 }
 
-bool pm_unregister_service(uint32_t program_id, pm_protocols protocol, int16_t core_id, uint16_t port){
-    pm_entry_clist entries;
+bool pm_unregister_service(erpc_transport_t transport, uint32_t program_id, pm_protocols protocol, uint16_t port){
+    pm_entry_clist *entries;
     pm_map_t::iterator mit;
     pm_entry_clist::iterator lit;
     bool good = false;
+    int16_t core_id = (int16_t) ((int)transport & 0xFFFF);
 
     if(protocol >= PROTOCOLS_COUNT){
         return false;
@@ -88,10 +90,10 @@ bool pm_unregister_service(uint32_t program_id, pm_protocols protocol, int16_t c
     if(mit == pm_map.end()){
         return false;
     } else {
-        entries = pm_map[program_id][protocol];
+        entries = &(pm_map[program_id][protocol]);
     }
 
-    for(lit = entries.begin(); lit != entries.end(); lit ++){
+    for(lit = entries->begin(); lit != entries->end(); lit ++){
         if((*lit)->core_id == core_id && (*lit)->port == port){
             good = true;
             break;
@@ -100,9 +102,10 @@ bool pm_unregister_service(uint32_t program_id, pm_protocols protocol, int16_t c
 
     if(good){
         remote_entry *remote = *lit;
-        entries.remove(remote);
+        entries->remove(remote);
         free(remote);
         int totalsize = 0, i;
+
         for(i = 0; i < PROTOCOLS_COUNT; i++){
             totalsize += pm_map[program_id][i].size();
         }
@@ -147,21 +150,44 @@ pm_entry_list * pm_lookup(uint32_t program_id, pm_protocols *protocol){
     pm_entry * ptr = out_list->elements;
 
     pm_entry_clist::iterator lit;
+    unsigned int el_cnt = 0;
 
     if(protocol == NULL){
         for(unsigned int i = 0; i < PROTOCOLS_COUNT; i++){
             for(lit = entries[i].begin(); lit != entries[i].end(); lit ++){
-                fill_pm_entry(ptr, program_id, (pm_protocols) i, (*lit));
+                fill_pm_entry(ptr, program_id, (pm_protocols) i, (*lit), el_cnt);
             }
         }
     } else {
         for(lit = entries[*protocol].begin(); lit != entries[*protocol].end(); lit ++){
-            fill_pm_entry(ptr, program_id, (*protocol), (*lit));
+            fill_pm_entry(ptr, program_id, (*protocol), (*lit), el_cnt);
         }
     }
 
     return out_list;
 }
+
+void pm_dump(){
+    unsigned int i;
+
+    pm_entry_clist::iterator lit;
+
+    printf("Dumping portmapper table:\n"
+           "------------------------------------\n"
+           "progr , proto , core  , port\n");
+
+    for(auto mit : pm_map){
+        for(i = 0; i < PROTOCOLS_COUNT; i++){
+            for(lit = mit.second[i].begin(); lit != mit.second[i].end(); lit ++){
+                printf("%d\t%d\t%d\t%d\n", mit.first, i, (*lit)->core_id, (*lit)->port);
+            }
+        }
+    }
+
+    printf("------------------------------------\n"
+           "\n");
+}
+
 
 /********************
  * C code interface
@@ -171,28 +197,35 @@ pm_entry_list * pm_lookup(uint32_t program_id, pm_protocols *protocol){
 extern "C" {
 #endif
 
-bool register_service(uint32_t program_id, pm_protocols protocol, int16_t core_id, uint16_t port){
-    return pm_register_service(program_id, protocol, core_id, port);
+bool register_service(erpc_transport_t transport, uint32_t program_id, pm_protocols protocol, uint16_t port){
+    return pm_register_service(transport, program_id, protocol, port);
 }
 
-bool register_entry(const pm_entry * entry){
-    return pm_register_service(entry->program_id, entry->protocol, entry->core_id, entry->port);
+bool register_entry(erpc_transport_t transport, const pm_entry * entry){
+    return pm_register_service(transport, entry->program_id, entry->protocol, entry->port);
 }
 
-bool unregister_service(uint32_t program_id, pm_protocols protocol, int16_t core_id, uint16_t port){
-    return pm_unregister_service(program_id, protocol, core_id, port);
+bool unregister_service(erpc_transport_t transport, uint32_t program_id, pm_protocols protocol, uint16_t port){
+    return pm_unregister_service(transport, program_id, protocol, port);
 }
 
-bool unregister_entry(const pm_entry * entry){
-    return pm_unregister_service(entry->program_id, entry->protocol, entry->core_id, entry->port);
+bool unregister_entry(erpc_transport_t transport, const pm_entry * entry){
+    return pm_unregister_service(transport, entry->program_id, entry->protocol, entry->port);
 }
 
-pm_entry_list * lookup(uint32_t program_id){
+pm_entry_list * lookup(erpc_transport_t transport, uint32_t program_id){
+    (void) (transport);
     return pm_lookup(program_id, NULL);
 }
 
-pm_entry_list * lookup_proto(uint32_t program_id, pm_protocols protocol){
+pm_entry_list * lookup_proto(erpc_transport_t transport, uint32_t program_id, pm_protocols protocol){
+    (void) (transport);
     return pm_lookup(program_id, &protocol);
+}
+
+void dump(erpc_transport_t transport){
+    (void) (transport);
+    pm_dump();
 }
 
 #if defined(__cplusplus)
@@ -211,6 +244,10 @@ int main(int argc, char ** argv){
     printf("starting portmapper server...\n");
 
     erpc_transport_t transport = erpc_transport_sock_rpmsg_multihost_init(portmapper_port, 0, true);
+    if(transport == NULL){
+        printf("Error: Unable to bind server socket\n");
+        return kErpcStatus_InitFailed;
+    }
     erpc_mbf_t message_buffer_factory = erpc_mbf_dynamic_init();
     erpc_multihost_server_init(transport, message_buffer_factory);
 
@@ -221,7 +258,7 @@ int main(int argc, char ** argv){
     error = erpc_multihost_server_run();
 
     if(error){
-        printf("ERROR: %d", error);
+        printf("Error: %d", error);
     } else {
         printf("server was shut down");
     }

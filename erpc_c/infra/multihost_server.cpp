@@ -108,7 +108,8 @@ erpc_status_t MultihostServer::runInternal()
 
     // Handle the request.
     message_type_t msgType;
-    err = processMessage(codec, msgType);
+    int remote_core = CLIENT_ID_TO_CORE_ID(client_id);
+    err = processMessage(codec, msgType, remote_core);
     if (err)
     {
         // Dispose of buffers and codecs.

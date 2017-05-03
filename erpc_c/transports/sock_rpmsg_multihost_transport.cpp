@@ -63,15 +63,16 @@ erpc_status_t sockRPMsgMultihostTransport::init(uint16_t port, uint16_t remote_v
 
     new_fd = socket(AF_RPMSG, SOCK_DGRAM, 0);
     if(new_fd < 0){
-        perror("Error");
+        perror("Error creating socket");
         return kErpcStatus_InitFailed;
     }
 
+
     if(serverRole){
         sockaddr.addr = port;
-        ret_value = bind(new_fd, (struct sockaddr *) &sockaddr, sizeof(sockaddr));
+        ret_value = bind(new_fd, (struct sockaddr *) &sockaddr, sizeof(struct sockaddr_rpmsg));
         if(ret_value < 0){
-            perror("Error");
+            perror("Error binding socket");
             return kErpcStatus_InitFailed;
         }
     } else {
@@ -105,10 +106,7 @@ erpc_status_t sockRPMsgMultihostTransport::select(MessageBuffer *message, int *c
         return kErpcStatus_ReceiveFailed;
     }
 
-    (*client_id) = (remote_addr.vproc_id & 0xFFFF) | (remote_addr.addr & 0xFFFF) << 16;
-
-    printf("received message %s from %d:%d, client id: %d (%x)\n", freeBuffer,
-           remote_addr.vproc_id, remote_addr.addr, *client_id, *client_id);
+    (*client_id) = CORE_ID_ADDR_TO_CLIENTID(remote_addr.vproc_id, remote_addr.addr);
 
     return kErpcStatus_Success;
 }
@@ -122,12 +120,9 @@ erpc_status_t sockRPMsgMultihostTransport::send(const MessageBuffer *message, in
     int ret_value;
     sockaddr_rpmsg remote_addr;
 
-    remote_addr.addr = (client_id >> 16) & 0xFFFF;
+    remote_addr.addr = CLIENT_ID_TO_ADDR(client_id);
     remote_addr.family = AF_RPMSG;
-    remote_addr.vproc_id = client_id & 0xFFFF;
-
-    printf("sending message %s to %d:%d, client id: %d (%x)\n", message->get(),
-           remote_addr.vproc_id, remote_addr.addr, client_id, client_id);
+    remote_addr.vproc_id = CLIENT_ID_TO_CORE_ID(client_id);
 
     ret_value = sendto(sock_fd, (void *)message->get(), message->getUsed(), 0,
                        (struct sockaddr *)&remote_addr, sizeof(remote_addr));
@@ -144,6 +139,5 @@ erpc_status_t sockRPMsgMultihostTransport::send(const MessageBuffer *message, in
             return kErpcStatus_SendFailed;
         }
     }
-    printf("message sent\n");
     return kErpcStatus_Success;
 }

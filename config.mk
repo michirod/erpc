@@ -8,9 +8,10 @@ include ${mkfile_path}mk/erpc_common.mk
 LIBERPCPREFIX ?= ${TARGET_OUTPUT_ROOT}
 
 liberpc_portmapper := ${TARGET_OUTPUT_ROOT}/../portmapper/portmapper
+liberpc_portmapper_srcs := $(wildcard ${mkfile_path}portmapper_server/*)
 liberpc_out := ${TARGET_OUTPUT_ROOT}/lib/liberpc.a
 liberpc_includes := ${TARGET_OUTPUT_ROOT}/include/erpc
-liberpc_srcs := $(wildcard ${mkfile_path}erpc_c/*/*.cpp)
+liberpc_srcs := $(wildcard ${mkfile_path}erpc_c/*/*.cpp) $(wildcard ${mkfile_path}ercp_c/*/*.h)
 
 LIBERPC_CC := ${CC}
 LIBERPC_CXX := ${CXX}
@@ -26,6 +27,7 @@ ${liberpc_includes}:
 ${liberpc_out}: ${liberpc_srcs} ${liberpc_includes}
 	make -C ${mkfile_path} erpc AR="${LIBERPC_AR}" CC="${LIBERPC_CC}" CXX="${LIBERPC_CXX}" LD="${LIBERPC_LD}"
 
-${liberpc_portmapper}: ${liberpc_out}
+${liberpc_portmapper}: ${liberpc_portmapper_srcs} ${liberpc_out} ${liberpc_srcs}
+	rm -f $@
 	make -C ${mkfile_path} portmapper AR="${LIBERPC_AR}" CC="${LIBERPC_CC}" CXX="${LIBERPC_CXX}" LD="${LIBERPC_LD}" LDFLAGS="${LIBERPC_LDFLAGS}"
 

@@ -34,6 +34,10 @@
 #include <cstring>
 #include <stdint.h>
 
+#define CLIENT_ID_TO_CORE_ID(_cid) (int16_t)((_cid) & 0xFFFF)
+#define CLIENT_ID_TO_ADDR(_cid) (uint16_t)(((_cid) >> 16) & 0xFFFF)
+#define CORE_ID_ADDR_TO_CLIENTID(_core, _addr) (((_core) & 0xFFFF) | (((_addr) & 0xFFFF) << 16))
+
 /*!
  * @addtogroup infra_transport
  * @{

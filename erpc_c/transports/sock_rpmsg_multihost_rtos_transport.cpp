@@ -109,8 +109,6 @@ erpc_status_t sockRPMsgMultihostRTOSTransport::select(MessageBuffer *message, in
 
     (*client_id) = (remote_addr.vproc_id & 0xFFFF) | (remote_addr.addr & 0xFFFF) << 16;
 
-    fl_printf("received message %s from %d:%d", freeBuffer, remote_addr.vproc_id, remote_addr.addr);
-
     return kErpcStatus_Success;
 }
 
@@ -127,8 +125,6 @@ erpc_status_t sockRPMsgMultihostRTOSTransport::send(const MessageBuffer *message
     remote_addr.family = AF_RPMSG;
     remote_addr.vproc_id = client_id & 0xFFFF;
 
-    fl_printf("sending message %s to %d:%d", message->get(), remote_addr.vproc_id, remote_addr.addr);
-
     ret_value = rpmsg_socket_sendto(sock_fd, (void *)message->get(), message->getUsed(), &remote_addr);
     if (ret_value < 0) {
         perror("Error");
@@ -143,8 +139,6 @@ erpc_status_t sockRPMsgMultihostRTOSTransport::send(const MessageBuffer *message
             return kErpcStatus_SendFailed;
         }
     }
-
-    fl_printf("message sent");
 
     return kErpcStatus_Success;
 }

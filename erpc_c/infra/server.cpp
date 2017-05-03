@@ -88,6 +88,31 @@ erpc_status_t Server::processMessage(Codec *codec, message_type_t &msgType)
     return service->handleInvocation(methodId, sequence, codec, m_messageFactory, m_transport);
 }
 
+erpc_status_t Server::processMessage(Codec *codec, message_type_t &msgType, int remote_id)
+{
+    uint32_t serviceId;
+    uint32_t methodId;
+    uint32_t sequence;
+    erpc_status_t err = codec->startReadMessage(&msgType, &serviceId, &methodId, &sequence);
+    if (err)
+    {
+        return err;
+    }
+
+    if (msgType != kInvocationMessage && msgType != kOnewayMessage)
+    {
+        return kErpcStatus_InvalidArgument;
+    }
+
+    Service *service = findServiceWithId(serviceId);
+    if (!service)
+    {
+        return kErpcStatus_InvalidArgument;
+    }
+
+    return service->handleInvocation(methodId, sequence, codec, m_messageFactory, (Transport *) remote_id);
+}
+
 Service *Server::findServiceWithId(uint32_t serviceId)
 {
     Service *service = m_firstService;

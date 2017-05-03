@@ -191,6 +191,17 @@ protected:
     virtual erpc_status_t processMessage(Codec *codec, message_type_t &msgType);
 
     /*!
+     * @brief Process message.
+     *
+     * @param[in] inCodec Inout codec to use.
+     * @param[out] msgType Type of received message. Based on message type will be (will be not) sent respond.
+     *
+     * @returns #kErpcStatus_Success, #kErpcStatus_InvalidArgument or based on codec startReadMessage,
+     * or based on service handleInvocation.
+     */
+    virtual erpc_status_t processMessage(Codec *codec, message_type_t &msgType, int remote_id);
+
+    /*!
      * @brief This function finds service base on service ID.
      *
      * @param[in] serviceId Service id number.

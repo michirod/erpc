@@ -46,8 +46,11 @@ static ManuallyConstructed<sockRPMsgMultihostTransport> s_transport;
 erpc_transport_t erpc_transport_sock_rpmsg_multihost_init(uint16_t port, uint16_t remote_vproc_id, bool serverRole)
 {
     s_transport.construct();
-    s_transport->init(port, remote_vproc_id, serverRole);
-    return reinterpret_cast<erpc_transport_t>(s_transport.get());
+    if(s_transport->init(port, remote_vproc_id, serverRole) == kErpcStatus_Success){
+        return reinterpret_cast<erpc_transport_t>(s_transport.get());
+    } else {
+        return NULL;
+    }
 }
 
 void erpc_transport_sock_rpmsg_multihost_deinit(){
