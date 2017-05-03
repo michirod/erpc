@@ -88,7 +88,7 @@ public:
      *
      * @param[in] factory Message buffer factory to use.
      */
-    void setMessageBufferFactory(MessageBufferFactory *factory) { m_messageFactory = factory; }
+    void setMessageBufferFactory(MessageBufferFactory *factory);
 
     /*!
      * @brief This function sets codec factory to use.

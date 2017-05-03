@@ -98,6 +98,13 @@ public:
      */
     void setTransport(MultihostTransport *transport) { m_transport = transport; }
 
+    /*!
+     * @brief Add service.
+     *
+     * @param[in] service Service to use.
+     */
+    virtual void addService(Service *service);
+
 protected:
     /*!
      * @brief Run server implementation.

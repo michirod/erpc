@@ -43,7 +43,8 @@ using namespace erpc;
 ////////////////////////////////////////////////////////////////////////////////
 
 sockRPMsgMultihostTransport::sockRPMsgMultihostTransport()
-: MultihostTransport()
+: MultihostTransport(),
+  server_protocol(DGRAM)
 {
 }
 
@@ -52,6 +53,13 @@ sockRPMsgMultihostTransport::~sockRPMsgMultihostTransport()
     close(sock_fd);
 }
 
+uint32_t sockRPMsgMultihostTransport::getAddr(){
+    return (uint32_t) (server_port);
+}
+
+uint32_t sockRPMsgMultihostTransport::getProtocol(){
+    return (uint32_t) (server_protocol);
+}
 
 erpc_status_t sockRPMsgMultihostTransport::init(uint16_t port, uint16_t remote_vproc_id, bool serverRole)
 {
@@ -67,9 +75,8 @@ erpc_status_t sockRPMsgMultihostTransport::init(uint16_t port, uint16_t remote_v
         return kErpcStatus_InitFailed;
     }
 
-
     if(serverRole){
-        sockaddr.addr = port;
+        server_port = sockaddr.addr = port;
         ret_value = bind(new_fd, (struct sockaddr *) &sockaddr, sizeof(struct sockaddr_rpmsg));
         if(ret_value < 0){
             perror("Error binding socket");

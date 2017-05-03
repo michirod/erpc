@@ -58,7 +58,7 @@ extern "C" {
  *
  * This function initializes server with all components necessary for running server.
  */
-void erpc_multihost_server_init(erpc_transport_t transport, erpc_mbf_t message_buffer_factory);
+void erpc_multihost_server_init(erpc_transport_t transport, erpc_transport_t portmapper_transport, erpc_mbf_t message_buffer_factory);
 
 /*!
  * @brief This function de-initializes server.

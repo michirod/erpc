@@ -47,6 +47,7 @@ LIBS_ROOT = $(TARGET_OUTPUT_ROOT)/lib
 INCLUDES += $(ERPC_C_ROOT)/config \
 			$(ERPC_C_ROOT)/infra \
 			$(ERPC_C_ROOT)/port \
+			$(ERPC_C_ROOT)/portmapper \
 			$(ERPC_C_ROOT)/setup \
 			$(ERPC_C_ROOT)/transports
 

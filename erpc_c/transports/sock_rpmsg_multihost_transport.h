@@ -33,6 +33,7 @@
 #include "message_buffer.h"
 #include "static_queue.h"
 #include "multihost_transport.h"
+#include "erpc_portmapper.h"
 
 extern "C" {
 #include <linux/rpmsg_socket.h>
@@ -109,8 +110,14 @@ public:
      */
     virtual erpc_status_t send(const MessageBuffer *message, int client_id);
 
+    virtual uint32_t getAddr();
+
+    virtual uint32_t getProtocol();
+
 protected:
     int sock_fd = -1;
+    pm_addr_port server_port;
+    pm_protocols server_protocol;
 };
 
 } // namespace erpc

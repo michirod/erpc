@@ -28,6 +28,8 @@
  */
 
 #include "multihost_server.h"
+#include "erpc_portmapper.h"
+#include "erpc_client_setup.h"
 
 using namespace erpc;
 #if !(__embedded_cplusplus)
@@ -44,9 +46,28 @@ MultihostServer::~MultihostServer()
     {
         Service *firstService = m_firstService;
         m_firstService = m_firstService->getNext();
+        if(m_pm_transport){
+            unregister_service(reinterpret_cast<erpc_transport_t>(m_pm_transport),
+                             firstService->getServiceId(), (pm_protocols) m_transport->getProtocol(),
+                             m_transport->getAddr());
+        }
         delete firstService;
     }
 }
+
+void MultihostServer::addService(Service *service){
+    Server::addService(service);
+
+    //register service to portmapper
+    if(m_pm_transport){
+        erpc_client_init(reinterpret_cast<erpc_transport_t>(m_pm_transport),
+                         reinterpret_cast<erpc_mbf_t>(m_messageFactory));
+        register_service(reinterpret_cast<erpc_transport_t>(m_pm_transport),
+                         service->getServiceId(), (pm_protocols) m_transport->getProtocol(),
+                         m_transport->getAddr());
+    }
+}
+
 
 void MultihostServer::disposeBufferAndCodec(Codec *codec)
 {

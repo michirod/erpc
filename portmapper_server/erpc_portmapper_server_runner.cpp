@@ -249,7 +249,7 @@ int main(int argc, char ** argv){
         return kErpcStatus_InitFailed;
     }
     erpc_mbf_t message_buffer_factory = erpc_mbf_dynamic_init();
-    erpc_multihost_server_init(transport, message_buffer_factory);
+    erpc_multihost_server_init(transport, NULL, message_buffer_factory);
 
     erpc_add_service_to_multihost_server(create_portmapper_service());
 

@@ -13,9 +13,11 @@ struct pm_entry {
     uint16 port
 }
 
-const uint16 portmapper_port = 111
-
+type pm_addr_port = uint16
+type pm_addr_addr = int16
 type pm_entry_list = list<pm_entry>
+
+const pm_addr_port portmapper_port = 111
 
 interface portmapper {
     register_service(uint32 program_id, pm_protocols protocol, uint16 port) -> bool

@@ -46,6 +46,10 @@ void ClientManager::setTransport(Transport *transport)
     m_transport = transport;
 }
 
+void ClientManager::setMessageBufferFactory(MessageBufferFactory *factory){
+    m_messageFactory = factory;
+}
+
 RequestContext ClientManager::createRequest(bool isOneway)
 {
     // Create codec to read and write the request.

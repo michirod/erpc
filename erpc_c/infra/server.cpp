@@ -46,6 +46,11 @@ void Server::setTransport(Transport *transport)
     m_transport = transport;
 }
 
+void Server::setPortmapperTransport(Transport *transport)
+{
+    m_pm_transport = transport;
+}
+
 void Server::addService(Service *service)
 {
     if (!m_firstService)

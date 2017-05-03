@@ -48,7 +48,8 @@ using namespace erpc;
 sockRPMsgMultihostRTOSTransport::sockRPMsgMultihostRTOSTransport()
 : MultihostTransport(),
   sock_fd(-1),
-  server_role(false)
+  server_role(false),
+  server_protocol(DGRAM)
 {
 }
 
@@ -57,13 +58,21 @@ sockRPMsgMultihostRTOSTransport::~sockRPMsgMultihostRTOSTransport()
     rpmsg_socket_close(sock_fd);
 }
 
+uint32_t sockRPMsgMultihostRTOSTransport::getAddr(){
+    return (uint32_t) (server_port);
+}
+
+uint32_t sockRPMsgMultihostRTOSTransport::getProtocol(){
+    return (uint32_t) (server_protocol);
+}
+
 erpc_status_t sockRPMsgMultihostRTOSTransport::init(uint16_t port, bool serverRole)
 {
     int ret_value, new_fd;
-    sockaddr_rpmsg sockaddr;
+    struct sockaddr_rpmsg serveraddr;
 
-    sockaddr.family = AF_RPMSG;
-    sockaddr.vproc_id = 0;
+    serveraddr.family = AF_RPMSG;
+    serveraddr.vproc_id = 0;
 
     new_fd = rpmsg_socket_create(RPMSG_ST_DGRAM);
     if(new_fd < 0){
@@ -73,11 +82,11 @@ erpc_status_t sockRPMsgMultihostRTOSTransport::init(uint16_t port, bool serverRo
     server_role = serverRole;
 
     if(serverRole){
-        sockaddr.addr = port;
-        ret_value = rpmsg_socket_bind(new_fd, &sockaddr);
+        server_port = serveraddr.addr = port;
+        ret_value = rpmsg_socket_bind(new_fd, &serveraddr);
         if(ret_value < 0){
             rpmsg_socket_close(new_fd);
-            fl_printf("CPU1: ERROR binding socket %d: %d\r\n", sockaddr.addr, ret_value);
+            fl_printf("CPU1: ERROR binding socket %d: %d\r\n", serveraddr.addr, ret_value);
             return kErpcStatus_InitFailed;
         }
     } else {

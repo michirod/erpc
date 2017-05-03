@@ -17,9 +17,13 @@ Archive member included to satisfy reference by file (symbol)
 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o)
                               /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o) (vtable for erpc::MultihostServer)
 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(server.o)
-                              /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o) (erpc::Server::processMessage(erpc::Codec*, erpc::_message_type&))
+                              /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o) (erpc::Server::setPortmapperTransport(erpc::Transport*))
 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(simple_server.o)
                               /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o) (erpc::SimpleServer::~SimpleServer())
+/home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+                              /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o) (erpc_client_init)
+/home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
+                              /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o) (erpc::ClientManager::setTransport(erpc::Transport*))
 /opennext/sitaranfs/usr/lib/./libc_nonshared.a(elf-init.oS)
                               /opennext/sitaranfs/usr/lib/crt1.o (__libc_csu_init)
 
@@ -108,6 +112,67 @@ Discarded input sections
                 0x0000000000000000        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(server.o)
  .note.GNU-stack
                 0x0000000000000000        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(simple_server.o)
+ .group         0x0000000000000000       0x10 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .group         0x0000000000000000       0x1c /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .group         0x0000000000000000       0x10 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .group         0x0000000000000000       0x10 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .group         0x0000000000000000       0x10 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .group         0x0000000000000000        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .group         0x0000000000000000        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .group         0x0000000000000000        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .group         0x0000000000000000        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .group         0x0000000000000000        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .text._ZN4erpc17BasicCodecFactory7disposeEPNS_5CodecE
+                0x0000000000000000        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .ARM.extab.text._ZN4erpc17BasicCodecFactory7disposeEPNS_5CodecE
+                0x0000000000000000        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .ARM.exidx.text._ZN4erpc17BasicCodecFactory7disposeEPNS_5CodecE
+                0x0000000000000000        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .text._ZN4erpc17BasicCodecFactoryD2Ev
+                0x0000000000000000        0x2 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .ARM.extab.text._ZN4erpc17BasicCodecFactoryD2Ev
+                0x0000000000000000        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .ARM.exidx.text._ZN4erpc17BasicCodecFactoryD2Ev
+                0x0000000000000000        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .text._ZN4erpc17BasicCodecFactory6createEv
+                0x0000000000000000       0x28 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .ARM.extab.text._ZN4erpc17BasicCodecFactory6createEv
+                0x0000000000000000        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .ARM.exidx.text._ZN4erpc17BasicCodecFactory6createEv
+                0x0000000000000000        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .text._ZN4erpc5Codec5resetEv
+                0x0000000000000000        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .ARM.extab.text._ZN4erpc5Codec5resetEv
+                0x0000000000000000        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .ARM.exidx.text._ZN4erpc5Codec5resetEv
+                0x0000000000000000        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .text._ZN4erpc5Codec9setBufferERNS_13MessageBufferE
+                0x0000000000000000       0x14 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .ARM.extab.text._ZN4erpc5Codec9setBufferERNS_13MessageBufferE
+                0x0000000000000000        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .ARM.exidx.text._ZN4erpc5Codec9setBufferERNS_13MessageBufferE
+                0x0000000000000000        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .text._ZN4erpc17BasicCodecFactoryD0Ev
+                0x0000000000000000        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .ARM.extab.text._ZN4erpc17BasicCodecFactoryD0Ev
+                0x0000000000000000        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .ARM.exidx.text._ZN4erpc17BasicCodecFactoryD0Ev
+                0x0000000000000000        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .rodata._ZTSN4erpc12CodecFactoryE
+                0x0000000000000000       0x16 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .rodata._ZTIN4erpc12CodecFactoryE
+                0x0000000000000000        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .rodata._ZTSN4erpc17BasicCodecFactoryE
+                0x0000000000000000       0x1b /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .rodata._ZTIN4erpc17BasicCodecFactoryE
+                0x0000000000000000        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .rodata._ZTVN4erpc17BasicCodecFactoryE
+                0x0000000000000000       0x18 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .group         0x0000000000000000       0x1c /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
  .note.GNU-stack
                 0x0000000000000000        0x0 /opennext/sitaranfs/usr/lib/./libc_nonshared.a(elf-init.oS)
  .note.GNU-stack
@@ -281,7 +346,7 @@ LOAD /opennext/sitaranfs/usr/lib/crtn.o
  *(.iplt)
  .iplt          0x0000000000010b80        0x0 /opennext/sitaranfs/usr/lib/crt1.o
 
-.text           0x0000000000010b80     0x1648
+.text           0x0000000000010b80     0x1874
  *(.text.unlikely .text.*_unlikely .text.unlikely.*)
  *(.text.exit .text.exit.*)
  *(.text.startup .text.startup.*)
@@ -355,432 +420,479 @@ LOAD /opennext/sitaranfs/usr/lib/crtn.o
                 0x0000000000011828                erpc_free
                 0x000000000001182c                __cxa_pure_virtual
  *fill*         0x000000000001182e        0x2 
- .text          0x0000000000011830       0x98 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+ .text          0x0000000000011830       0xa8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
                 0x0000000000011830                erpc_multihost_server_init
-                0x0000000000011864                erpc_multihost_server_deinit
-                0x0000000000011884                erpc_add_service_to_multihost_server
-                0x0000000000011898                erpc_multihost_server_run
-                0x00000000000118a8                erpc_multihost_server_poll
-                0x00000000000118b8                erpc_multihost_server_stop
+                0x0000000000011874                erpc_multihost_server_deinit
+                0x0000000000011894                erpc_add_service_to_multihost_server
+                0x00000000000118a8                erpc_multihost_server_run
+                0x00000000000118b8                erpc_multihost_server_poll
+                0x00000000000118c8                erpc_multihost_server_stop
  .text._ZN4erpc17BasicCodecFactory7disposeEPNS_5CodecE
-                0x00000000000118c8        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
-                0x00000000000118c8                erpc::BasicCodecFactory::dispose(erpc::Codec*)
+                0x00000000000118d8        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x00000000000118d8                erpc::BasicCodecFactory::dispose(erpc::Codec*)
  .text._ZN4erpc17BasicCodecFactoryD2Ev
-                0x00000000000118d4        0x2 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
-                0x00000000000118d4                erpc::BasicCodecFactory::~BasicCodecFactory()
-                0x00000000000118d4                erpc::BasicCodecFactory::~BasicCodecFactory()
- *fill*         0x00000000000118d6        0x2 
+                0x00000000000118e4        0x2 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x00000000000118e4                erpc::BasicCodecFactory::~BasicCodecFactory()
+                0x00000000000118e4                erpc::BasicCodecFactory::~BasicCodecFactory()
+ *fill*         0x00000000000118e6        0x2 
  .text._ZN4erpc17BasicCodecFactory6createEv
-                0x00000000000118d8       0x28 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
-                0x00000000000118d8                erpc::BasicCodecFactory::create()
+                0x00000000000118e8       0x28 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x00000000000118e8                erpc::BasicCodecFactory::create()
  .text._ZN4erpc5Codec5resetEv
-                0x0000000000011900        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
-                0x0000000000011900                erpc::Codec::reset()
+                0x0000000000011910        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x0000000000011910                erpc::Codec::reset()
  .text._ZN4erpc5Codec9setBufferERNS_13MessageBufferE
-                0x0000000000011908       0x14 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
-                0x0000000000011908                erpc::Codec::setBuffer(erpc::MessageBuffer&)
+                0x0000000000011918       0x14 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x0000000000011918                erpc::Codec::setBuffer(erpc::MessageBuffer&)
  .text._ZN4erpc17BasicCodecFactoryD0Ev
-                0x000000000001191c        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
-                0x000000000001191c                erpc::BasicCodecFactory::~BasicCodecFactory()
- .text          0x0000000000011928       0x10 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
-                0x0000000000011928                erpc_mbf_dynamic_init
+                0x000000000001192c        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x000000000001192c                erpc::BasicCodecFactory::~BasicCodecFactory()
+ .text          0x0000000000011938       0x10 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x0000000000011938                erpc_mbf_dynamic_init
  .text._ZN4erpc20MessageBufferFactory18createServerBufferEv
-                0x0000000000011938        0x4 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
-                0x0000000000011938                erpc::MessageBufferFactory::createServerBuffer()
+                0x0000000000011948        0x4 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x0000000000011948                erpc::MessageBufferFactory::createServerBuffer()
  .text._ZN27DynamicMessageBufferFactoryD2Ev
-                0x000000000001193c        0x2 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
-                0x000000000001193c                DynamicMessageBufferFactory::~DynamicMessageBufferFactory()
-                0x000000000001193c                DynamicMessageBufferFactory::~DynamicMessageBufferFactory()
+                0x000000000001194c        0x2 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x000000000001194c                DynamicMessageBufferFactory::~DynamicMessageBufferFactory()
+                0x000000000001194c                DynamicMessageBufferFactory::~DynamicMessageBufferFactory()
  .text._ZN27DynamicMessageBufferFactory7disposeEPN4erpc13MessageBufferE
-                0x000000000001193e        0xe /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
-                0x000000000001193e                DynamicMessageBufferFactory::dispose(erpc::MessageBuffer*)
+                0x000000000001194e        0xe /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x000000000001194e                DynamicMessageBufferFactory::dispose(erpc::MessageBuffer*)
  .text._ZN27DynamicMessageBufferFactory6createEv
-                0x000000000001194c       0x24 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
-                0x000000000001194c                DynamicMessageBufferFactory::create()
+                0x000000000001195c       0x24 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x000000000001195c                DynamicMessageBufferFactory::create()
  .text._ZN27DynamicMessageBufferFactoryD0Ev
-                0x0000000000011970        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
-                0x0000000000011970                DynamicMessageBufferFactory::~DynamicMessageBufferFactory()
- .text          0x000000000001197c       0x34 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_sock_rpmsg_multihost.o)
-                0x000000000001197c                erpc_transport_sock_rpmsg_multihost_deinit
-                0x0000000000011988                erpc_transport_sock_rpmsg_multihost_init
- .text          0x00000000000119b0      0x134 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
-                0x00000000000119b0                erpc::sockRPMsgMultihostTransport::~sockRPMsgMultihostTransport()
-                0x00000000000119b0                erpc::sockRPMsgMultihostTransport::~sockRPMsgMultihostTransport()
+                0x0000000000011980        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x0000000000011980                DynamicMessageBufferFactory::~DynamicMessageBufferFactory()
+ .text          0x000000000001198c       0x34 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_sock_rpmsg_multihost.o)
+                0x000000000001198c                erpc_transport_sock_rpmsg_multihost_deinit
+                0x0000000000011998                erpc_transport_sock_rpmsg_multihost_init
+ .text          0x00000000000119c0      0x144 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
+                0x00000000000119c0                erpc::sockRPMsgMultihostTransport::getAddr()
+                0x00000000000119c4                erpc::sockRPMsgMultihostTransport::getProtocol()
                 0x00000000000119c8                erpc::sockRPMsgMultihostTransport::~sockRPMsgMultihostTransport()
-                0x00000000000119da                erpc::sockRPMsgMultihostTransport::init(unsigned short, unsigned short, bool)
-                0x0000000000011a2c                erpc::sockRPMsgMultihostTransport::select(erpc::MessageBuffer*, int*)
-                0x0000000000011a70                erpc::sockRPMsgMultihostTransport::send(erpc::MessageBuffer const*, int)
-                0x0000000000011ad4                erpc::sockRPMsgMultihostTransport::sockRPMsgMultihostTransport()
-                0x0000000000011ad4                erpc::sockRPMsgMultihostTransport::sockRPMsgMultihostTransport()
+                0x00000000000119c8                erpc::sockRPMsgMultihostTransport::~sockRPMsgMultihostTransport()
+                0x00000000000119e0                erpc::sockRPMsgMultihostTransport::~sockRPMsgMultihostTransport()
+                0x00000000000119f2                erpc::sockRPMsgMultihostTransport::init(unsigned short, unsigned short, bool)
+                0x0000000000011a48                erpc::sockRPMsgMultihostTransport::select(erpc::MessageBuffer*, int*)
+                0x0000000000011a8c                erpc::sockRPMsgMultihostTransport::send(erpc::MessageBuffer const*, int)
+                0x0000000000011af0                erpc::sockRPMsgMultihostTransport::sockRPMsgMultihostTransport()
+                0x0000000000011af0                erpc::sockRPMsgMultihostTransport::sockRPMsgMultihostTransport()
  .text._ZN4erpc18MultihostTransport10hasMessageEv
-                0x0000000000011ae4        0x4 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
-                0x0000000000011ae4                erpc::MultihostTransport::hasMessage()
- .text          0x0000000000011ae8      0x24a /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
-                0x0000000000011ae8                erpc::BasicCodec::writeString(unsigned int, char const*)
-                0x0000000000011aee                erpc::BasicCodec::startWriteList(unsigned int)
-                0x0000000000011af4                erpc::BasicCodec::writeNullFlag(bool)
-                0x0000000000011afa                erpc::BasicCodec::startReadMessage(erpc::_message_type*, unsigned int*, unsigned int*, unsigned int*)
-                0x0000000000011b3c                erpc::BasicCodec::readString(unsigned int*, char**)
-                0x0000000000011b44                erpc::BasicCodec::startReadList(unsigned int*)
-                0x0000000000011b4c                erpc::BasicCodec::startReadStruct()
-                0x0000000000011b4c                erpc::BasicCodec::endWriteMessage()
-                0x0000000000011b4c                erpc::BasicCodec::endReadList()
-                0x0000000000011b4c                erpc::BasicCodec::endReadMessage()
-                0x0000000000011b4c                erpc::BasicCodec::endReadStruct()
-                0x0000000000011b4c                erpc::BasicCodec::endWriteList()
-                0x0000000000011b4c                erpc::BasicCodec::endWriteStruct()
-                0x0000000000011b4c                erpc::BasicCodec::startWriteStruct()
-                0x0000000000011b50                erpc::BasicCodec::readNullFlag(bool*)
-                0x0000000000011b72                erpc::BasicCodec::write(bool)
-                0x0000000000011b8a                erpc::BasicCodec::write(signed char)
-                0x0000000000011ba2                erpc::BasicCodec::write(short)
-                0x0000000000011bba                erpc::BasicCodec::write(int)
-                0x0000000000011bd2                erpc::BasicCodec::write(long long)
-                0x0000000000011be8                erpc::BasicCodec::write(unsigned char)
-                0x0000000000011c00                erpc::BasicCodec::write(unsigned short)
-                0x0000000000011c18                erpc::BasicCodec::write(unsigned int)
-                0x0000000000011c30                erpc::BasicCodec::write(unsigned long long)
-                0x0000000000011c46                erpc::BasicCodec::write(float)
-                0x0000000000011c5c                erpc::BasicCodec::write(double)
-                0x0000000000011c72                erpc::BasicCodec::writeBinary(unsigned int, unsigned char const*)
-                0x0000000000011c94                erpc::BasicCodec::read(bool*)
-                0x0000000000011cb8                erpc::BasicCodec::read(unsigned char*)
-                0x0000000000011cb8                erpc::BasicCodec::read(signed char*)
-                0x0000000000011cc0                erpc::BasicCodec::read(unsigned short*)
-                0x0000000000011cc0                erpc::BasicCodec::read(short*)
-                0x0000000000011cc8                erpc::BasicCodec::read(float*)
-                0x0000000000011cc8                erpc::BasicCodec::read(unsigned int*)
-                0x0000000000011cc8                erpc::BasicCodec::read(int*)
-                0x0000000000011cd0                erpc::BasicCodec::read(long long*)
-                0x0000000000011cd0                erpc::BasicCodec::read(double*)
-                0x0000000000011cd0                erpc::BasicCodec::read(unsigned long long*)
-                0x0000000000011cd8                erpc::BasicCodec::readBinary(unsigned int*, unsigned char**)
-                0x0000000000011d00                erpc::BasicCodec::startWriteMessage(erpc::_message_type, unsigned int, unsigned int, unsigned int)
+                0x0000000000011b04        0x4 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
+                0x0000000000011b04                erpc::MultihostTransport::hasMessage()
+ .text          0x0000000000011b08      0x24a /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
+                0x0000000000011b08                erpc::BasicCodec::writeString(unsigned int, char const*)
+                0x0000000000011b0e                erpc::BasicCodec::startWriteList(unsigned int)
+                0x0000000000011b14                erpc::BasicCodec::writeNullFlag(bool)
+                0x0000000000011b1a                erpc::BasicCodec::startReadMessage(erpc::_message_type*, unsigned int*, unsigned int*, unsigned int*)
+                0x0000000000011b5c                erpc::BasicCodec::readString(unsigned int*, char**)
+                0x0000000000011b64                erpc::BasicCodec::startReadList(unsigned int*)
+                0x0000000000011b6c                erpc::BasicCodec::startReadStruct()
+                0x0000000000011b6c                erpc::BasicCodec::endWriteMessage()
+                0x0000000000011b6c                erpc::BasicCodec::endReadList()
+                0x0000000000011b6c                erpc::BasicCodec::endReadMessage()
+                0x0000000000011b6c                erpc::BasicCodec::endReadStruct()
+                0x0000000000011b6c                erpc::BasicCodec::endWriteList()
+                0x0000000000011b6c                erpc::BasicCodec::endWriteStruct()
+                0x0000000000011b6c                erpc::BasicCodec::startWriteStruct()
+                0x0000000000011b70                erpc::BasicCodec::readNullFlag(bool*)
+                0x0000000000011b92                erpc::BasicCodec::write(bool)
+                0x0000000000011baa                erpc::BasicCodec::write(signed char)
+                0x0000000000011bc2                erpc::BasicCodec::write(short)
+                0x0000000000011bda                erpc::BasicCodec::write(int)
+                0x0000000000011bf2                erpc::BasicCodec::write(long long)
+                0x0000000000011c08                erpc::BasicCodec::write(unsigned char)
+                0x0000000000011c20                erpc::BasicCodec::write(unsigned short)
+                0x0000000000011c38                erpc::BasicCodec::write(unsigned int)
+                0x0000000000011c50                erpc::BasicCodec::write(unsigned long long)
+                0x0000000000011c66                erpc::BasicCodec::write(float)
+                0x0000000000011c7c                erpc::BasicCodec::write(double)
+                0x0000000000011c92                erpc::BasicCodec::writeBinary(unsigned int, unsigned char const*)
+                0x0000000000011cb4                erpc::BasicCodec::read(bool*)
+                0x0000000000011cd8                erpc::BasicCodec::read(unsigned char*)
+                0x0000000000011cd8                erpc::BasicCodec::read(signed char*)
+                0x0000000000011ce0                erpc::BasicCodec::read(unsigned short*)
+                0x0000000000011ce0                erpc::BasicCodec::read(short*)
+                0x0000000000011ce8                erpc::BasicCodec::read(float*)
+                0x0000000000011ce8                erpc::BasicCodec::read(unsigned int*)
+                0x0000000000011ce8                erpc::BasicCodec::read(int*)
+                0x0000000000011cf0                erpc::BasicCodec::read(long long*)
+                0x0000000000011cf0                erpc::BasicCodec::read(double*)
+                0x0000000000011cf0                erpc::BasicCodec::read(unsigned long long*)
+                0x0000000000011cf8                erpc::BasicCodec::readBinary(unsigned int*, unsigned char**)
+                0x0000000000011d20                erpc::BasicCodec::startWriteMessage(erpc::_message_type, unsigned int, unsigned int, unsigned int)
  .text._ZN4erpc10BasicCodecD2Ev
-                0x0000000000011d32        0x2 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
-                0x0000000000011d32                erpc::BasicCodec::~BasicCodec()
-                0x0000000000011d32                erpc::BasicCodec::~BasicCodec()
+                0x0000000000011d52        0x2 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
+                0x0000000000011d52                erpc::BasicCodec::~BasicCodec()
+                0x0000000000011d52                erpc::BasicCodec::~BasicCodec()
  .text._ZN4erpc10BasicCodecD0Ev
-                0x0000000000011d34        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
-                0x0000000000011d34                erpc::BasicCodec::~BasicCodec()
- .text          0x0000000000011d40      0x108 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(message_buffer.o)
-                0x0000000000011d40                erpc::MessageBufferFactory::prepareServerBufferForSend(erpc::MessageBuffer*)
-                0x0000000000011d46                erpc::MessageBuffer::read(unsigned short, void*, unsigned int)
-                0x0000000000011d6a                erpc::MessageBuffer::write(unsigned short, void const*, unsigned int)
-                0x0000000000011d8c                erpc::MessageBuffer::copy(erpc::MessageBuffer const*)
-                0x0000000000011da6                erpc::MessageBuffer::swap(erpc::MessageBuffer*)
-                0x0000000000011de0                erpc::MessageBuffer::Cursor::set(erpc::MessageBuffer*)
-                0x0000000000011dec                erpc::MessageBuffer::Cursor::read(void*, unsigned int)
-                0x0000000000011e14                erpc::MessageBuffer::Cursor::write(void const*, unsigned int)
- .text          0x0000000000011e48      0x130 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o)
-                0x0000000000011e48                erpc::MultihostServer::stop()
-                0x0000000000011e4e                erpc::MultihostServer::~MultihostServer()
-                0x0000000000011e4e                erpc::MultihostServer::~MultihostServer()
-                0x0000000000011e74                erpc::MultihostServer::~MultihostServer()
-                0x0000000000011e86                erpc::MultihostServer::disposeBufferAndCodec(erpc::Codec*)
-                0x0000000000011ea8                erpc::MultihostServer::createBufferAndCodec()
-                0x0000000000011ee2                erpc::MultihostServer::runInternal()
-                0x0000000000011f42                erpc::MultihostServer::run()
-                0x0000000000011f56                erpc::MultihostServer::poll()
- .text          0x0000000000011f78       0xca /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(server.o)
-                0x0000000000011f78                erpc::Server::processMessage(erpc::Codec*, erpc::_message_type&)
-                0x0000000000011fc6                erpc::Server::processMessage(erpc::Codec*, erpc::_message_type&, int)
-                0x000000000001201a                erpc::Server::findServiceWithId(unsigned int)
-                0x000000000001202a                erpc::Server::setTransport(erpc::Transport*)
-                0x000000000001202e                erpc::Server::addService(erpc::Service*)
- *fill*         0x0000000000012042        0x2 
- .text          0x0000000000012044      0x140 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(simple_server.o)
-                0x0000000000012044                erpc::SimpleServer::~SimpleServer()
-                0x0000000000012044                erpc::SimpleServer::~SimpleServer()
-                0x0000000000012064                erpc::SimpleServer::stop()
-                0x000000000001206a                erpc::SimpleServer::~SimpleServer()
-                0x000000000001207c                erpc::SimpleServer::disposeBufferAndCodec(erpc::Codec*)
-                0x000000000001209e                erpc::SimpleServer::runInternal()
-                0x000000000001214e                erpc::SimpleServer::run()
-                0x0000000000012162                erpc::SimpleServer::poll()
- .text          0x0000000000012184       0x44 /opennext/sitaranfs/usr/lib/./libc_nonshared.a(elf-init.oS)
-                0x0000000000012184                __libc_csu_init
-                0x00000000000121c4                __libc_csu_fini
- .text          0x00000000000121c8        0x0 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o
- .text          0x00000000000121c8        0x0 /opennext/sitaranfs/usr/lib/crtn.o
+                0x0000000000011d54        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
+                0x0000000000011d54                erpc::BasicCodec::~BasicCodec()
+ .text          0x0000000000011d60      0x108 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(message_buffer.o)
+                0x0000000000011d60                erpc::MessageBufferFactory::prepareServerBufferForSend(erpc::MessageBuffer*)
+                0x0000000000011d66                erpc::MessageBuffer::read(unsigned short, void*, unsigned int)
+                0x0000000000011d8a                erpc::MessageBuffer::write(unsigned short, void const*, unsigned int)
+                0x0000000000011dac                erpc::MessageBuffer::copy(erpc::MessageBuffer const*)
+                0x0000000000011dc6                erpc::MessageBuffer::swap(erpc::MessageBuffer*)
+                0x0000000000011e00                erpc::MessageBuffer::Cursor::set(erpc::MessageBuffer*)
+                0x0000000000011e0c                erpc::MessageBuffer::Cursor::read(void*, unsigned int)
+                0x0000000000011e34                erpc::MessageBuffer::Cursor::write(void const*, unsigned int)
+ .text          0x0000000000011e68      0x1a0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o)
+                0x0000000000011e68                erpc::MultihostServer::stop()
+                0x0000000000011e70                erpc::MultihostServer::~MultihostServer()
+                0x0000000000011e70                erpc::MultihostServer::~MultihostServer()
+                0x0000000000011ec0                erpc::MultihostServer::~MultihostServer()
+                0x0000000000011ed2                erpc::MultihostServer::disposeBufferAndCodec(erpc::Codec*)
+                0x0000000000011ef4                erpc::MultihostServer::createBufferAndCodec()
+                0x0000000000011f2e                erpc::MultihostServer::runInternal()
+                0x0000000000011f8e                erpc::MultihostServer::run()
+                0x0000000000011fa4                erpc::MultihostServer::poll()
+                0x0000000000011fc6                erpc::MultihostServer::addService(erpc::Service*)
+ .text          0x0000000000012008       0xce /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(server.o)
+                0x0000000000012008                erpc::Server::setPortmapperTransport(erpc::Transport*)
+                0x000000000001200c                erpc::Server::addService(erpc::Service*)
+                0x0000000000012020                erpc::Server::processMessage(erpc::Codec*, erpc::_message_type&)
+                0x000000000001206e                erpc::Server::processMessage(erpc::Codec*, erpc::_message_type&, int)
+                0x00000000000120c2                erpc::Server::findServiceWithId(unsigned int)
+                0x00000000000120d2                erpc::Server::setTransport(erpc::Transport*)
+ *fill*         0x00000000000120d6        0x2 
+ .text          0x00000000000120d8      0x140 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(simple_server.o)
+                0x00000000000120d8                erpc::SimpleServer::~SimpleServer()
+                0x00000000000120d8                erpc::SimpleServer::~SimpleServer()
+                0x00000000000120f8                erpc::SimpleServer::stop()
+                0x00000000000120fe                erpc::SimpleServer::~SimpleServer()
+                0x0000000000012110                erpc::SimpleServer::disposeBufferAndCodec(erpc::Codec*)
+                0x0000000000012132                erpc::SimpleServer::runInternal()
+                0x00000000000121e2                erpc::SimpleServer::run()
+                0x00000000000121f6                erpc::SimpleServer::poll()
+ .text          0x0000000000012218       0x78 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+                0x0000000000012218                erpc_client_init
+                0x0000000000012260                erpc_client_set_error_handler
+                0x0000000000012270                erpc_client_deinit
+ .text          0x0000000000012290      0x108 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
+                0x0000000000012290                erpc::ClientManager::performRequest(erpc::RequestContext&)
+                0x00000000000122a2                erpc::ClientManager::verifyReply(erpc::RequestContext&)
+                0x00000000000122de                erpc::ClientManager::releaseRequest(erpc::RequestContext&)
+                0x00000000000122fe                erpc::ClientManager::performRequest(erpc::Transport*, erpc::RequestContext&)
+                0x0000000000012336                erpc::ClientManager::setTransport(erpc::Transport*)
+                0x000000000001233a                erpc::ClientManager::setMessageBufferFactory(erpc::MessageBufferFactory*)
+                0x000000000001233e                erpc::ClientManager::createBufferAndCodec()
+                0x000000000001237a                erpc::ClientManager::createRequest(bool)
+ .text._ZN4erpc13ClientManagerD2Ev
+                0x0000000000012398        0x2 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
+                0x0000000000012398                erpc::ClientManager::~ClientManager()
+                0x0000000000012398                erpc::ClientManager::~ClientManager()
+ .text._ZN4erpc13ClientManagerD0Ev
+                0x000000000001239a        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
+                0x000000000001239a                erpc::ClientManager::~ClientManager()
+ *fill*         0x00000000000123a6        0x2 
+ .text          0x00000000000123a8       0x44 /opennext/sitaranfs/usr/lib/./libc_nonshared.a(elf-init.oS)
+                0x00000000000123a8                __libc_csu_init
+                0x00000000000123e8                __libc_csu_fini
+ .text          0x00000000000123ec        0x0 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o
+ .text          0x00000000000123ec        0x0 /opennext/sitaranfs/usr/lib/crtn.o
+ *fill*         0x00000000000123ec        0x4 
+ .text.__stub   0x00000000000123f0        0x4 linker stubs
  *(.gnu.warning)
  *(.glue_7t)
- .glue_7t       0x00000000000121c8        0x0 linker stubs
+ .glue_7t       0x00000000000123f4        0x0 linker stubs
  *(.glue_7)
- .glue_7        0x00000000000121c8        0x0 linker stubs
+ .glue_7        0x00000000000123f4        0x0 linker stubs
  *(.vfp11_veneer)
- .vfp11_veneer  0x00000000000121c8        0x0 linker stubs
+ .vfp11_veneer  0x00000000000123f4        0x0 linker stubs
  *(.v4_bx)
- .v4_bx         0x00000000000121c8        0x0 linker stubs
+ .v4_bx         0x00000000000123f4        0x0 linker stubs
 
-.fini           0x00000000000121c8        0x8
+.fini           0x00000000000123f4        0x8
  *(SORT(.fini))
- .fini          0x00000000000121c8        0x4 /opennext/sitaranfs/usr/lib/crti.o
-                0x00000000000121c8                _fini
- .fini          0x00000000000121cc        0x4 /opennext/sitaranfs/usr/lib/crtn.o
-                0x00000000000121d0                PROVIDE (__etext, .)
-                0x00000000000121d0                PROVIDE (_etext, .)
-                0x00000000000121d0                PROVIDE (etext, .)
+ .fini          0x00000000000123f4        0x4 /opennext/sitaranfs/usr/lib/crti.o
+                0x00000000000123f4                _fini
+ .fini          0x00000000000123f8        0x4 /opennext/sitaranfs/usr/lib/crtn.o
+                0x00000000000123fc                PROVIDE (__etext, .)
+                0x00000000000123fc                PROVIDE (_etext, .)
+                0x00000000000123fc                PROVIDE (etext, .)
 
-.rodata         0x00000000000121d0      0x4ec
+.rodata         0x00000000000123fc      0x550
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata.cst4   0x00000000000121d0        0x4 /opennext/sitaranfs/usr/lib/crt1.o
-                0x00000000000121d0                _IO_stdin_used
+ .rodata.cst4   0x00000000000123fc        0x4 /opennext/sitaranfs/usr/lib/crt1.o
+                0x00000000000123fc                _IO_stdin_used
  .rodata._ZTSN4erpc7ServiceE
-                0x00000000000121d4       0x10 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
-                0x00000000000121d4                typeinfo name for erpc::Service
+                0x0000000000012400       0x10 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
+                0x0000000000012400                typeinfo name for erpc::Service
  .rodata._ZTIN4erpc7ServiceE
-                0x00000000000121e4        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
-                0x00000000000121e4                typeinfo for erpc::Service
- .rodata        0x00000000000121ec       0x3c /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
-                0x00000000000121ec                vtable for portmapper_service
-                0x0000000000012200                typeinfo name for portmapper_service
-                0x0000000000012218                typeinfo for portmapper_service
-                0x0000000000012224                portmapper_port
- .rodata        0x0000000000012228        0x1 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x0000000000012410        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
+                0x0000000000012410                typeinfo for erpc::Service
+ .rodata        0x0000000000012418       0x3c /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
+                0x0000000000012418                vtable for portmapper_service
+                0x000000000001242c                typeinfo name for portmapper_service
+                0x0000000000012444                typeinfo for portmapper_service
+                0x0000000000012450                portmapper_port
+ .rodata        0x0000000000012454        0x1 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
  .rodata.str1.1
-                0x0000000000012229      0x130 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x0000000000012455      0x130 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
  .rodata._ZTSN4erpc12CodecFactoryE
-                0x0000000000012359       0x16 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
-                0x0000000000012359                typeinfo name for erpc::CodecFactory
- *fill*         0x000000000001236f        0x1 
+                0x0000000000012585       0x16 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x0000000000012585                typeinfo name for erpc::CodecFactory
+ *fill*         0x000000000001259b        0x1 
  .rodata._ZTIN4erpc12CodecFactoryE
-                0x0000000000012370        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
-                0x0000000000012370                typeinfo for erpc::CodecFactory
+                0x000000000001259c        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x000000000001259c                typeinfo for erpc::CodecFactory
  .rodata._ZTSN4erpc17BasicCodecFactoryE
-                0x0000000000012378       0x1b /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
-                0x0000000000012378                typeinfo name for erpc::BasicCodecFactory
- *fill*         0x0000000000012393        0x1 
+                0x00000000000125a4       0x1b /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x00000000000125a4                typeinfo name for erpc::BasicCodecFactory
+ *fill*         0x00000000000125bf        0x1 
  .rodata._ZTIN4erpc17BasicCodecFactoryE
-                0x0000000000012394        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
-                0x0000000000012394                typeinfo for erpc::BasicCodecFactory
+                0x00000000000125c0        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x00000000000125c0                typeinfo for erpc::BasicCodecFactory
  .rodata._ZTVN4erpc17BasicCodecFactoryE
-                0x00000000000123a0       0x18 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
-                0x00000000000123a0                vtable for erpc::BasicCodecFactory
+                0x00000000000125cc       0x18 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x00000000000125cc                vtable for erpc::BasicCodecFactory
  .rodata._ZTS27DynamicMessageBufferFactory
-                0x00000000000123b8       0x1e /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
-                0x00000000000123b8                typeinfo name for DynamicMessageBufferFactory
- *fill*         0x00000000000123d6        0x2 
+                0x00000000000125e4       0x1e /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x00000000000125e4                typeinfo name for DynamicMessageBufferFactory
+ *fill*         0x0000000000012602        0x2 
  .rodata._ZTI27DynamicMessageBufferFactory
-                0x00000000000123d8        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
-                0x00000000000123d8                typeinfo for DynamicMessageBufferFactory
+                0x0000000000012604        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x0000000000012604                typeinfo for DynamicMessageBufferFactory
  .rodata._ZTV27DynamicMessageBufferFactory
-                0x00000000000123e4       0x20 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
-                0x00000000000123e4                vtable for DynamicMessageBufferFactory
+                0x0000000000012610       0x20 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x0000000000012610                vtable for DynamicMessageBufferFactory
  .rodata._ZTSN4erpc18MultihostTransportE
-                0x0000000000012404       0x1c /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
-                0x0000000000012404                typeinfo name for erpc::MultihostTransport
+                0x0000000000012630       0x1c /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
+                0x0000000000012630                typeinfo name for erpc::MultihostTransport
  .rodata._ZTIN4erpc18MultihostTransportE
-                0x0000000000012420        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
-                0x0000000000012420                typeinfo for erpc::MultihostTransport
- .rodata        0x0000000000012428       0x54 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
-                0x0000000000012428                vtable for erpc::sockRPMsgMultihostTransport
-                0x0000000000012448                typeinfo name for erpc::sockRPMsgMultihostTransport
-                0x0000000000012470                typeinfo for erpc::sockRPMsgMultihostTransport
+                0x000000000001264c        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
+                0x000000000001264c                typeinfo for erpc::MultihostTransport
+ .rodata        0x0000000000012654       0x5c /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
+                0x0000000000012654                vtable for erpc::sockRPMsgMultihostTransport
+                0x000000000001267c                typeinfo name for erpc::sockRPMsgMultihostTransport
+                0x00000000000126a4                typeinfo for erpc::sockRPMsgMultihostTransport
  .rodata.str1.1
-                0x000000000001247c       0x31 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
+                0x00000000000126b0       0x31 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
  .rodata._ZTSN4erpc5CodecE
-                0x00000000000124ad        0xe /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
-                0x00000000000124ad                typeinfo name for erpc::Codec
- *fill*         0x00000000000124bb        0x1 
+                0x00000000000126e1        0xe /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
+                0x00000000000126e1                typeinfo name for erpc::Codec
+ *fill*         0x00000000000126ef        0x1 
  .rodata._ZTIN4erpc5CodecE
-                0x00000000000124bc        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
-                0x00000000000124bc                typeinfo for erpc::Codec
- .rodata        0x00000000000124c4       0xd8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
-                0x00000000000124c4                typeinfo name for erpc::BasicCodec
-                0x00000000000124d8                typeinfo for erpc::BasicCodec
-                0x00000000000124e4                vtable for erpc::BasicCodec
- .rodata        0x000000000001259c       0x48 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(message_buffer.o)
-                0x000000000001259c                typeinfo name for erpc::MessageBufferFactory
-                0x00000000000125bc                typeinfo for erpc::MessageBufferFactory
-                0x00000000000125c4                vtable for erpc::MessageBufferFactory
- .rodata        0x00000000000125e4       0x50 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o)
-                0x00000000000125e4                vtable for erpc::MultihostServer
-                0x000000000001260c                typeinfo name for erpc::MultihostServer
-                0x0000000000012628                typeinfo for erpc::MultihostServer
- .rodata        0x0000000000012634       0x3c /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(server.o)
-                0x0000000000012634                typeinfo name for erpc::Server
-                0x0000000000012644                typeinfo for erpc::Server
-                0x000000000001264c                vtable for erpc::Server
- .rodata        0x0000000000012670       0x4c /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(simple_server.o)
-                0x0000000000012670                vtable for erpc::SimpleServer
-                0x0000000000012698                typeinfo name for erpc::SimpleServer
-                0x00000000000126b0                typeinfo for erpc::SimpleServer
+                0x00000000000126f0        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
+                0x00000000000126f0                typeinfo for erpc::Codec
+ .rodata        0x00000000000126f8       0xd8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
+                0x00000000000126f8                typeinfo name for erpc::BasicCodec
+                0x000000000001270c                typeinfo for erpc::BasicCodec
+                0x0000000000012718                vtable for erpc::BasicCodec
+ .rodata        0x00000000000127d0       0x48 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(message_buffer.o)
+                0x00000000000127d0                typeinfo name for erpc::MessageBufferFactory
+                0x00000000000127f0                typeinfo for erpc::MessageBufferFactory
+                0x00000000000127f8                vtable for erpc::MessageBufferFactory
+ .rodata        0x0000000000012818       0x58 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o)
+                0x0000000000012818                vtable for erpc::MultihostServer
+                0x0000000000012848                typeinfo name for erpc::MultihostServer
+                0x0000000000012864                typeinfo for erpc::MultihostServer
+ .rodata        0x0000000000012870       0x44 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(server.o)
+                0x0000000000012870                typeinfo name for erpc::Server
+                0x0000000000012880                typeinfo for erpc::Server
+                0x0000000000012888                vtable for erpc::Server
+ .rodata        0x00000000000128b4       0x54 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(simple_server.o)
+                0x00000000000128b4                vtable for erpc::SimpleServer
+                0x00000000000128e4                typeinfo name for erpc::SimpleServer
+                0x00000000000128fc                typeinfo for erpc::SimpleServer
+ .rodata        0x0000000000012908       0x44 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
+                0x0000000000012908                typeinfo name for erpc::ClientManager
+                0x0000000000012920                typeinfo for erpc::ClientManager
+                0x0000000000012928                vtable for erpc::ClientManager
 
 .rodata1
  *(.rodata1)
 
-.ARM.extab      0x00000000000126bc        0xc
+.ARM.extab      0x000000000001294c       0x18
  *(.ARM.extab* .gnu.linkonce.armextab.*)
- .ARM.extab     0x00000000000126bc        0x0 /opennext/sitaranfs/usr/lib/crt1.o
+ .ARM.extab     0x000000000001294c        0x0 /opennext/sitaranfs/usr/lib/crt1.o
  .ARM.extab.text._ZN18portmapper_serviceD2Ev
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
  .ARM.extab.text._ZN18portmapper_serviceD0Ev
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
- .ARM.extab     0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
- .ARM.extab     0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
+ .ARM.extab     0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
+ .ARM.extab     0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
  .ARM.extab.text.startup
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
  .ARM.extab.text._ZNSt8_Rb_treeIjSt4pairIKjPNSt7__cxx114listIP12remote_entrySaIS5_EEEESt10_Select1stIS9_ESt4lessIjESaIS9_EE4findERS1_
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
  .ARM.extab.text._ZNSt8_Rb_treeIjSt4pairIKjPNSt7__cxx114listIP12remote_entrySaIS5_EEEESt10_Select1stIS9_ESt4lessIjESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
  .ARM.extab.text._ZNSt3mapIjPNSt7__cxx114listIP12remote_entrySaIS3_EEESt4lessIjESaISt4pairIKjS6_EEED2Ev
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
  .ARM.extab.text._ZNSt8_Rb_treeIjSt4pairIKjPNSt7__cxx114listIP12remote_entrySaIS5_EEEESt10_Select1stIS9_ESt4lessIjESaIS9_EE24_M_get_insert_unique_posERS1_
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
  .ARM.extab.text._ZNSt8_Rb_treeIjSt4pairIKjPNSt7__cxx114listIP12remote_entrySaIS5_EEEESt10_Select1stIS9_ESt4lessIjESaIS9_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESK_IJEEEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
  .ARM.extab.text._ZNSt3mapIjPNSt7__cxx114listIP12remote_entrySaIS3_EEESt4lessIjESaISt4pairIKjS6_EEEixERSA_
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
- .ARM.extab     0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_port_stdlib.o)
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+ .ARM.extab     0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_port_stdlib.o)
  .ARM.extab.text._ZN4erpc17BasicCodecFactory7disposeEPNS_5CodecE
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
  .ARM.extab.text._ZN4erpc17BasicCodecFactoryD2Ev
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
  .ARM.extab.text._ZN4erpc17BasicCodecFactory6createEv
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
  .ARM.extab.text._ZN4erpc5Codec5resetEv
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
  .ARM.extab.text._ZN4erpc5Codec9setBufferERNS_13MessageBufferE
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
  .ARM.extab.text._ZN4erpc17BasicCodecFactoryD0Ev
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
- .ARM.extab     0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+ .ARM.extab     0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
  .ARM.extab.text._ZN4erpc20MessageBufferFactory18createServerBufferEv
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
  .ARM.extab.text._ZN27DynamicMessageBufferFactoryD2Ev
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
  .ARM.extab.text._ZN27DynamicMessageBufferFactory7disposeEPN4erpc13MessageBufferE
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
  .ARM.extab.text._ZN27DynamicMessageBufferFactory6createEv
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
  .ARM.extab.text._ZN27DynamicMessageBufferFactoryD0Ev
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
- .ARM.extab     0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
- .ARM.extab     0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_sock_rpmsg_multihost.o)
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+ .ARM.extab     0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+ .ARM.extab     0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_sock_rpmsg_multihost.o)
  .ARM.extab.text._ZN4erpc18MultihostTransport10hasMessageEv
-                0x00000000000126bc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
- .ARM.extab     0x00000000000126bc        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
- .ARM.extab     0x00000000000126c8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
+                0x000000000001294c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
+ .ARM.extab     0x000000000001294c        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
+ .ARM.extab     0x0000000000012958        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
  .ARM.extab.text._ZN4erpc10BasicCodecD2Ev
-                0x00000000000126c8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
+                0x0000000000012958        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
  .ARM.extab.text._ZN4erpc10BasicCodecD0Ev
-                0x00000000000126c8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
- .ARM.extab     0x00000000000126c8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(message_buffer.o)
- .ARM.extab     0x00000000000126c8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o)
- .ARM.extab     0x00000000000126c8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(server.o)
- .ARM.extab     0x00000000000126c8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(simple_server.o)
-                0x00000000000126c8                PROVIDE (__exidx_start, .)
+                0x0000000000012958        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
+ .ARM.extab     0x0000000000012958        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(message_buffer.o)
+ .ARM.extab     0x0000000000012958        0xc /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o)
+ .ARM.extab     0x0000000000012964        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(server.o)
+ .ARM.extab     0x0000000000012964        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(simple_server.o)
+ .ARM.extab     0x0000000000012964        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .ARM.extab.text._ZN4erpc13ClientManagerD2Ev
+                0x0000000000012964        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
+ .ARM.extab     0x0000000000012964        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
+ .ARM.extab.text._ZN4erpc13ClientManagerD0Ev
+                0x0000000000012964        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
+                0x0000000000012964                PROVIDE (__exidx_start, .)
 
-.ARM.exidx      0x00000000000126c8      0x1a0
+.ARM.exidx      0x0000000000012964      0x210
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x00000000000126d8        0x0 /opennext/sitaranfs/usr/lib/crt1.o
+ .ARM.exidx     0x0000000000012974        0x0 /opennext/sitaranfs/usr/lib/crt1.o
                                           0x8 (size before relaxing)
  .ARM.exidx.text._ZN18portmapper_serviceD2Ev
-                0x0000000000012728        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
+                0x00000000000129c4        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
                                           0x8 (size before relaxing)
  .ARM.exidx.text._ZN18portmapper_serviceD0Ev
-                0x0000000000012728        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
+                0x00000000000129c4        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
                                           0x8 (size before relaxing)
- .ARM.exidx     0x00000000000126d8       0x50 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
+ .ARM.exidx     0x0000000000012974       0x50 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
                                          0x58 (size before relaxing)
- .ARM.exidx     0x0000000000012728       0x48 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+ .ARM.exidx     0x00000000000129c4       0x48 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
                                          0x58 (size before relaxing)
  .ARM.exidx.text.startup
-                0x00000000000126c8       0x10 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x0000000000012964       0x10 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
  .ARM.exidx.text._ZNSt8_Rb_treeIjSt4pairIKjPNSt7__cxx114listIP12remote_entrySaIS5_EEEESt10_Select1stIS9_ESt4lessIjESaIS9_EE4findERS1_
-                0x0000000000012770        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x0000000000012a0c        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
  .ARM.exidx.text._ZNSt8_Rb_treeIjSt4pairIKjPNSt7__cxx114listIP12remote_entrySaIS5_EEEESt10_Select1stIS9_ESt4lessIjESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E
-                0x0000000000012778        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x0000000000012a14        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
                                           0x8 (size before relaxing)
  .ARM.exidx.text._ZNSt3mapIjPNSt7__cxx114listIP12remote_entrySaIS3_EEESt4lessIjESaISt4pairIKjS6_EEED2Ev
-                0x0000000000012778        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x0000000000012a14        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
                                           0x8 (size before relaxing)
  .ARM.exidx.text._ZNSt8_Rb_treeIjSt4pairIKjPNSt7__cxx114listIP12remote_entrySaIS5_EEEESt10_Select1stIS9_ESt4lessIjESaIS9_EE24_M_get_insert_unique_posERS1_
-                0x0000000000012778        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x0000000000012a14        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
                                           0x8 (size before relaxing)
  .ARM.exidx.text._ZNSt8_Rb_treeIjSt4pairIKjPNSt7__cxx114listIP12remote_entrySaIS5_EEEESt10_Select1stIS9_ESt4lessIjESaIS9_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESK_IJEEEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_
-                0x0000000000012778        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x0000000000012a14        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
  .ARM.exidx.text._ZNSt3mapIjPNSt7__cxx114listIP12remote_entrySaIS3_EEESt4lessIjESaISt4pairIKjS6_EEEixERSA_
-                0x0000000000012780        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
- .ARM.exidx     0x0000000000012788        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_port_stdlib.o)
+                0x0000000000012a1c        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+ .ARM.exidx     0x0000000000012a24        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_port_stdlib.o)
                                          0x48 (size before relaxing)
  .ARM.exidx.text._ZN4erpc17BasicCodecFactory7disposeEPNS_5CodecE
-                0x0000000000012790        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x0000000000012a3c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
                                           0x8 (size before relaxing)
  .ARM.exidx.text._ZN4erpc17BasicCodecFactoryD2Ev
-                0x0000000000012790        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x0000000000012a3c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
                                           0x8 (size before relaxing)
  .ARM.exidx.text._ZN4erpc17BasicCodecFactory6createEv
-                0x0000000000012790        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x0000000000012a3c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
                                           0x8 (size before relaxing)
  .ARM.exidx.text._ZN4erpc5Codec5resetEv
-                0x0000000000012790        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x0000000000012a3c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
                                           0x8 (size before relaxing)
  .ARM.exidx.text._ZN4erpc5Codec9setBufferERNS_13MessageBufferE
-                0x0000000000012790        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x0000000000012a3c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
                                           0x8 (size before relaxing)
  .ARM.exidx.text._ZN4erpc17BasicCodecFactoryD0Ev
-                0x0000000000012790        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x0000000000012a3c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
                                           0x8 (size before relaxing)
- .ARM.exidx     0x0000000000012790        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+ .ARM.exidx     0x0000000000012a2c       0x10 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
                                          0x30 (size before relaxing)
  .ARM.exidx.text._ZN4erpc20MessageBufferFactory18createServerBufferEv
-                0x0000000000012790        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x0000000000012a3c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
                                           0x8 (size before relaxing)
  .ARM.exidx.text._ZN27DynamicMessageBufferFactoryD2Ev
-                0x0000000000012790        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x0000000000012a3c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
                                           0x8 (size before relaxing)
  .ARM.exidx.text._ZN27DynamicMessageBufferFactory7disposeEPN4erpc13MessageBufferE
-                0x0000000000012790        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x0000000000012a3c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
                                           0x8 (size before relaxing)
  .ARM.exidx.text._ZN27DynamicMessageBufferFactory6createEv
-                0x0000000000012790        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x0000000000012a3c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
                                           0x8 (size before relaxing)
  .ARM.exidx.text._ZN27DynamicMessageBufferFactoryD0Ev
-                0x0000000000012790        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+                0x0000000000012a3c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
                                           0x8 (size before relaxing)
- .ARM.exidx     0x0000000000012790        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+ .ARM.exidx     0x0000000000012a3c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
                                           0x8 (size before relaxing)
- .ARM.exidx     0x0000000000012790        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_sock_rpmsg_multihost.o)
+ .ARM.exidx     0x0000000000012a3c        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_sock_rpmsg_multihost.o)
                                          0x10 (size before relaxing)
  .ARM.exidx.text._ZN4erpc18MultihostTransport10hasMessageEv
-                0x00000000000127c8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
+                0x0000000000012a7c        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
                                           0x8 (size before relaxing)
- .ARM.exidx     0x0000000000012798       0x30 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
- .ARM.exidx     0x00000000000127c8       0x40 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
+ .ARM.exidx     0x0000000000012a44       0x38 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
+                                         0x40 (size before relaxing)
+ .ARM.exidx     0x0000000000012a7c       0x40 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
                                          0xd8 (size before relaxing)
  .ARM.exidx.text._ZN4erpc10BasicCodecD2Ev
-                0x0000000000012808        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
+                0x0000000000012abc        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
  .ARM.exidx.text._ZN4erpc10BasicCodecD0Ev
-                0x0000000000012810        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
+                0x0000000000012ac4        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
                                           0x8 (size before relaxing)
- .ARM.exidx     0x0000000000012810        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(message_buffer.o)
+ .ARM.exidx     0x0000000000012ac4        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(message_buffer.o)
                                          0x40 (size before relaxing)
- .ARM.exidx     0x0000000000012810       0x20 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o)
-                                         0x40 (size before relaxing)
- .ARM.exidx     0x0000000000012830       0x18 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(server.o)
-                                         0x28 (size before relaxing)
- .ARM.exidx     0x0000000000012848       0x20 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(simple_server.o)
+ .ARM.exidx     0x0000000000012ac4       0x38 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o)
+                                         0x48 (size before relaxing)
+ .ARM.exidx     0x0000000000012afc       0x20 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(server.o)
+                                         0x30 (size before relaxing)
+ .ARM.exidx     0x0000000000012b1c       0x18 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(simple_server.o)
                                          0x38 (size before relaxing)
-                0x0000000000012868                PROVIDE (__exidx_end, .)
+ .ARM.exidx     0x0000000000012b34       0x10 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+                                         0x18 (size before relaxing)
+ .ARM.exidx.text._ZN4erpc13ClientManagerD2Ev
+                0x0000000000012b6c        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
+ .ARM.exidx     0x0000000000012b44       0x28 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
+                                         0x40 (size before relaxing)
+ .ARM.exidx.text._ZN4erpc13ClientManagerD0Ev
+                0x0000000000012b74        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
+                                          0x8 (size before relaxing)
+                0x0000000000012b74                PROVIDE (__exidx_end, .)
 
-.eh_frame_hdr   0x0000000000012868        0x0
+.eh_frame_hdr   0x0000000000012b74        0x0
  *(.eh_frame_hdr)
- .eh_frame_hdr  0x0000000000012868        0x0 /opennext/sitaranfs/usr/lib/crtn.o
+ .eh_frame_hdr  0x0000000000012b74        0x0 /opennext/sitaranfs/usr/lib/crtn.o
 
-.eh_frame       0x0000000000012868        0x4
+.eh_frame       0x0000000000012b74        0x4
  *(.eh_frame)
- .eh_frame      0x0000000000012868        0x4 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o
+ .eh_frame      0x0000000000012b74        0x4 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o
 
 .gcc_except_table
  *(.gcc_except_table .gcc_except_table.*)
 
 .exception_ranges
  *(.exception_ranges .exception_ranges*)
-                0x000000000001286c                . = (ALIGN (0x10000) - ((0x10000 - .) & 0xffff))
-                0x000000000002286c                . = DATA_SEGMENT_ALIGN (0x10000, 0x1000)
+                0x0000000000012b78                . = (ALIGN (0x10000) - ((0x10000 - .) & 0xffff))
+                0x0000000000022b78                . = DATA_SEGMENT_ALIGN (0x10000, 0x1000)
 
 .eh_frame
  *(.eh_frame)
@@ -798,25 +910,25 @@ LOAD /opennext/sitaranfs/usr/lib/crtn.o
  *(.tbss .tbss.* .gnu.linkonce.tb.*)
  *(.tcommon)
 
-.preinit_array  0x000000000002286c        0x0
-                0x000000000002286c                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x0000000000022b78        0x0
+                0x0000000000022b78                PROVIDE (__preinit_array_start, .)
  *(.preinit_array)
-                0x000000000002286c                PROVIDE (__preinit_array_end, .)
+                0x0000000000022b78                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x000000000002286c        0x8
-                0x000000000002286c                PROVIDE (__init_array_start, .)
+.init_array     0x0000000000022b78        0x8
+                0x0000000000022b78                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x000000000002286c        0x4 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o
- .init_array    0x0000000000022870        0x4 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
-                0x0000000000022874                PROVIDE (__init_array_end, .)
+ .init_array    0x0000000000022b78        0x4 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o
+ .init_array    0x0000000000022b7c        0x4 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x0000000000022b80                PROVIDE (__init_array_end, .)
 
-.fini_array     0x0000000000022874        0x4
-                0x0000000000022874                PROVIDE (__fini_array_start, .)
+.fini_array     0x0000000000022b80        0x4
+                0x0000000000022b80                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array)
- .fini_array    0x0000000000022874        0x4 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o
-                0x0000000000022878                PROVIDE (__fini_array_end, .)
+ .fini_array    0x0000000000022b80        0x4 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o
+                0x0000000000022b84                PROVIDE (__fini_array_end, .)
 
 .ctors
  *crtbegin.o(.ctors)
@@ -832,110 +944,115 @@ LOAD /opennext/sitaranfs/usr/lib/crtn.o
  *(SORT(.dtors.*))
  *(.dtors)
 
-.jcr            0x0000000000022878        0x4
+.jcr            0x0000000000022b84        0x4
  *(.jcr)
- .jcr           0x0000000000022878        0x0 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o
- .jcr           0x0000000000022878        0x4 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o
+ .jcr           0x0000000000022b84        0x0 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o
+ .jcr           0x0000000000022b84        0x4 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o
 
 .data.rel.ro
  *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
  *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
 
-.dynamic        0x000000000002287c      0x100
+.dynamic        0x0000000000022b88      0x100
  *(.dynamic)
- .dynamic       0x000000000002287c      0x100 /opennext/sitaranfs/usr/lib/crt1.o
-                0x000000000002287c                _DYNAMIC
-                0x000000000002297c                . = DATA_SEGMENT_RELRO_END (., 0x0)
+ .dynamic       0x0000000000022b88      0x100 /opennext/sitaranfs/usr/lib/crt1.o
+                0x0000000000022b88                _DYNAMIC
+                0x0000000000022c88                . = DATA_SEGMENT_RELRO_END (., 0x0)
 
-.got            0x000000000002297c       0x6c
+.got            0x0000000000022c88       0x6c
  *(.got.plt)
- .got.plt       0x000000000002297c       0x68 /opennext/sitaranfs/usr/lib/crt1.o
-                0x000000000002297c                _GLOBAL_OFFSET_TABLE_
+ .got.plt       0x0000000000022c88       0x68 /opennext/sitaranfs/usr/lib/crt1.o
+                0x0000000000022c88                _GLOBAL_OFFSET_TABLE_
  *(.igot.plt)
- .igot.plt      0x00000000000229e4        0x0 /opennext/sitaranfs/usr/lib/crt1.o
+ .igot.plt      0x0000000000022cf0        0x0 /opennext/sitaranfs/usr/lib/crt1.o
  *(.got)
- .got           0x00000000000229e4        0x4 /opennext/sitaranfs/usr/lib/crt1.o
+ .got           0x0000000000022cf0        0x4 /opennext/sitaranfs/usr/lib/crt1.o
  *(.igot)
 
-.data           0x00000000000229e8        0x8
-                0x00000000000229e8                PROVIDE (__data_start, .)
+.data           0x0000000000022cf4        0x8
+                0x0000000000022cf4                PROVIDE (__data_start, .)
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x00000000000229e8        0x4 /opennext/sitaranfs/usr/lib/crt1.o
-                0x00000000000229e8                data_start
-                0x00000000000229e8                __data_start
- .data          0x00000000000229ec        0x0 /opennext/sitaranfs/usr/lib/crti.o
- .data          0x00000000000229ec        0x4 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o
-                0x00000000000229ec                __dso_handle
- .data          0x00000000000229f0        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
- .data          0x00000000000229f0        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
- .data          0x00000000000229f0        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_port_stdlib.o)
- .data          0x00000000000229f0        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
- .data          0x00000000000229f0        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
- .data          0x00000000000229f0        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_sock_rpmsg_multihost.o)
- .data          0x00000000000229f0        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
- .data          0x00000000000229f0        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
- .data          0x00000000000229f0        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(message_buffer.o)
- .data          0x00000000000229f0        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o)
- .data          0x00000000000229f0        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(server.o)
- .data          0x00000000000229f0        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(simple_server.o)
- .data          0x00000000000229f0        0x0 /opennext/sitaranfs/usr/lib/./libc_nonshared.a(elf-init.oS)
- .data          0x00000000000229f0        0x0 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o
- .data          0x00000000000229f0        0x0 /opennext/sitaranfs/usr/lib/crtn.o
+ .data          0x0000000000022cf4        0x4 /opennext/sitaranfs/usr/lib/crt1.o
+                0x0000000000022cf4                data_start
+                0x0000000000022cf4                __data_start
+ .data          0x0000000000022cf8        0x0 /opennext/sitaranfs/usr/lib/crti.o
+ .data          0x0000000000022cf8        0x4 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o
+                0x0000000000022cf8                __dso_handle
+ .data          0x0000000000022cfc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
+ .data          0x0000000000022cfc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+ .data          0x0000000000022cfc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_port_stdlib.o)
+ .data          0x0000000000022cfc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+ .data          0x0000000000022cfc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+ .data          0x0000000000022cfc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_sock_rpmsg_multihost.o)
+ .data          0x0000000000022cfc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
+ .data          0x0000000000022cfc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
+ .data          0x0000000000022cfc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(message_buffer.o)
+ .data          0x0000000000022cfc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o)
+ .data          0x0000000000022cfc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(server.o)
+ .data          0x0000000000022cfc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(simple_server.o)
+ .data          0x0000000000022cfc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .data          0x0000000000022cfc        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
+ .data          0x0000000000022cfc        0x0 /opennext/sitaranfs/usr/lib/./libc_nonshared.a(elf-init.oS)
+ .data          0x0000000000022cfc        0x0 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o
+ .data          0x0000000000022cfc        0x0 /opennext/sitaranfs/usr/lib/crtn.o
 
 .tm_clone_table
-                0x00000000000229f0        0x0
+                0x0000000000022cfc        0x0
  .tm_clone_table
-                0x00000000000229f0        0x0 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o
+                0x0000000000022cfc        0x0 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o
  .tm_clone_table
-                0x00000000000229f0        0x0 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o
+                0x0000000000022cfc        0x0 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o
 
 .data1
  *(.data1)
-                0x00000000000229f0                _edata = .
-                0x00000000000229f0                PROVIDE (edata, .)
-                0x00000000000229f0                . = .
-                0x00000000000229f0                __bss_start = .
-                0x00000000000229f0                __bss_start__ = .
+                0x0000000000022cfc                _edata = .
+                0x0000000000022cfc                PROVIDE (edata, .)
+                0x0000000000022cfc                . = .
+                0x0000000000022cfc                __bss_start = .
+                0x0000000000022cfc                __bss_start__ = .
 
-.bss            0x00000000000229f0       0xb8
+.bss            0x0000000000022d00       0xf0
  *(.dynbss)
- .dynbss        0x00000000000229f0       0x5c /opennext/sitaranfs/usr/lib/crt1.o
-                0x00000000000229f0                std::nothrow@@GLIBCXX_3.4
-                0x00000000000229f4                vtable for __cxxabiv1::__class_type_info@@CXXABI_1.3
-                0x0000000000022a20                vtable for __cxxabiv1::__si_class_type_info@@CXXABI_1.3
+ .dynbss        0x0000000000022d00       0x5c /opennext/sitaranfs/usr/lib/crt1.o
+                0x0000000000022d00                std::nothrow@@GLIBCXX_3.4
+                0x0000000000022d04                vtable for __cxxabiv1::__class_type_info@@CXXABI_1.3
+                0x0000000000022d30                vtable for __cxxabiv1::__si_class_type_info@@CXXABI_1.3
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x0000000000022a4c        0x0 /opennext/sitaranfs/usr/lib/crt1.o
- .bss           0x0000000000022a4c        0x0 /opennext/sitaranfs/usr/lib/crti.o
- .bss           0x0000000000022a4c        0x1 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o
- .bss           0x0000000000022a4d        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
- *fill*         0x0000000000022a4d        0x3 
- .bss           0x0000000000022a50       0x18 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
-                0x0000000000022a50                pm_map[abi:cxx11]
- .bss           0x0000000000022a68        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_port_stdlib.o)
- .bss           0x0000000000022a68       0x30 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
-                0x0000000000022a90                g_multihost_server
- .bss           0x0000000000022a98        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
- .bss           0x0000000000022aa0        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_sock_rpmsg_multihost.o)
- .bss           0x0000000000022aa8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
- .bss           0x0000000000022aa8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
- .bss           0x0000000000022aa8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(message_buffer.o)
- .bss           0x0000000000022aa8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o)
- .bss           0x0000000000022aa8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(server.o)
- .bss           0x0000000000022aa8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(simple_server.o)
- .bss           0x0000000000022aa8        0x0 /opennext/sitaranfs/usr/lib/./libc_nonshared.a(elf-init.oS)
- .bss           0x0000000000022aa8        0x0 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o
- .bss           0x0000000000022aa8        0x0 /opennext/sitaranfs/usr/lib/crtn.o
+ .bss           0x0000000000022d5c        0x0 /opennext/sitaranfs/usr/lib/crt1.o
+ .bss           0x0000000000022d5c        0x0 /opennext/sitaranfs/usr/lib/crti.o
+ .bss           0x0000000000022d5c        0x1 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o
+ .bss           0x0000000000022d5d        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server.o
+ *fill*         0x0000000000022d5d        0x3 
+ .bss           0x0000000000022d60       0x18 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/obj/portmapper_server/erpc_portmapper_server_runner.o
+                0x0000000000022d60                pm_map[abi:cxx11]
+ .bss           0x0000000000022d78        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_port_stdlib.o)
+ .bss           0x0000000000022d78       0x38 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_multihost_server_setup.o)
+                0x0000000000022da8                g_multihost_server
+ .bss           0x0000000000022db0        0x8 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_mbf_dynamic.o)
+ .bss           0x0000000000022db8       0x10 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_setup_sock_rpmsg_multihost.o)
+ .bss           0x0000000000022dc8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(sock_rpmsg_multihost_transport.o)
+ .bss           0x0000000000022dc8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(basic_codec.o)
+ .bss           0x0000000000022dc8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(message_buffer.o)
+ .bss           0x0000000000022dc8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o)
+ .bss           0x0000000000022dc8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(server.o)
+ .bss           0x0000000000022dc8        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(simple_server.o)
+ .bss           0x0000000000022dc8       0x28 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+                0x0000000000022dc8                g_client
+ .bss           0x0000000000022df0        0x0 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
+ .bss           0x0000000000022df0        0x0 /opennext/sitaranfs/usr/lib/./libc_nonshared.a(elf-init.oS)
+ .bss           0x0000000000022df0        0x0 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o
+ .bss           0x0000000000022df0        0x0 /opennext/sitaranfs/usr/lib/crtn.o
  *(COMMON)
-                0x0000000000022aa8                . = ALIGN ((. != 0x0)?0x4:0x1)
-                0x0000000000022aa8                _bss_end__ = .
-                0x0000000000022aa8                __bss_end__ = .
-                0x0000000000022aa8                . = ALIGN (0x4)
-                0x0000000000022aa8                . = SEGMENT_START ("ldata-segment", .)
-                0x0000000000022aa8                . = ALIGN (0x4)
-                0x0000000000022aa8                __end__ = .
-                0x0000000000022aa8                _end = .
-                0x0000000000022aa8                PROVIDE (end, .)
-                0x0000000000022aa8                . = DATA_SEGMENT_END (.)
+                0x0000000000022df0                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x0000000000022df0                _bss_end__ = .
+                0x0000000000022df0                __bss_end__ = .
+                0x0000000000022df0                . = ALIGN (0x4)
+                0x0000000000022df0                . = SEGMENT_START ("ldata-segment", .)
+                0x0000000000022df0                . = ALIGN (0x4)
+                0x0000000000022df0                __end__ = .
+                0x0000000000022df0                _end = .
+                0x0000000000022df0                PROVIDE (end, .)
+                0x0000000000022df0                . = DATA_SEGMENT_END (.)
 
 .stab
  *(.stab)
@@ -972,6 +1089,8 @@ LOAD /opennext/sitaranfs/usr/lib/crtn.o
  .comment       0x000000000000002d       0x2e /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(multihost_server.o)
  .comment       0x000000000000002d       0x2e /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(server.o)
  .comment       0x000000000000002d       0x2e /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(simple_server.o)
+ .comment       0x000000000000002d       0x2e /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
+ .comment       0x000000000000002d       0x2e /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
  .comment       0x000000000000002d       0x2e /opennext/sitaranfs/usr/lib/./libc_nonshared.a(elf-init.oS)
  .comment       0x000000000000002d       0x2e /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o
 
@@ -1008,11 +1127,15 @@ LOAD /opennext/sitaranfs/usr/lib/crtn.o
  .ARM.attributes
                 0x00000000000002ba       0x33 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(simple_server.o)
  .ARM.attributes
-                0x00000000000002ed       0x35 /opennext/sitaranfs/usr/lib/./libc_nonshared.a(elf-init.oS)
+                0x00000000000002ed       0x33 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(erpc_client_setup.o)
  .ARM.attributes
-                0x0000000000000322       0x33 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o
+                0x0000000000000320       0x33 /home/mello/repos/common/erpc/Release/Linux/arm-linux-gnueabihf-gcc/portmapper/../erpc/lib/liberpc.a(client_manager.o)
  .ARM.attributes
-                0x0000000000000355       0x23 /opennext/sitaranfs/usr/lib/crtn.o
+                0x0000000000000353       0x35 /opennext/sitaranfs/usr/lib/./libc_nonshared.a(elf-init.oS)
+ .ARM.attributes
+                0x0000000000000388       0x33 /home/mello/ti/ti-processor-sdk-linux-am57xx-evm-03.01.00.06/linux-devkit/sysroots/x86_64-arago-linux/usr/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o
+ .ARM.attributes
+                0x00000000000003bb       0x23 /opennext/sitaranfs/usr/lib/crtn.o
 
 .debug
  *(.debug)

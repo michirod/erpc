@@ -54,7 +54,7 @@ static ManuallyConstructed<BasicCodecFactory> s_multihost_codecFactory;
 // Code
 ////////////////////////////////////////////////////////////////////////////////
 
-void erpc_multihost_server_init(erpc_transport_t transport, erpc_mbf_t message_buffer_factory)
+void erpc_multihost_server_init(erpc_transport_t transport, erpc_transport_t portmapper_transport, erpc_mbf_t message_buffer_factory)
 {
     // Init factories.
     s_multihost_codecFactory.construct();
@@ -62,6 +62,7 @@ void erpc_multihost_server_init(erpc_transport_t transport, erpc_mbf_t message_b
     // Init server with the provided transport.
     s_multihost_server.construct();
     s_multihost_server->setTransport(reinterpret_cast<MultihostTransport *>(transport));
+    s_multihost_server->setPortmapperTransport(reinterpret_cast<Transport *>(portmapper_transport));
     s_multihost_server->setCodecFactory(s_multihost_codecFactory);
     s_multihost_server->setMessageBufferFactory(reinterpret_cast<MessageBufferFactory *>(message_buffer_factory));
     g_multihost_server = s_multihost_server;

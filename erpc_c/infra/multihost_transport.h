@@ -103,6 +103,20 @@ public:
      * @retval True when a message is available to process, else false.
      */
     virtual bool hasMessage() { return true; }
+
+    /*!
+     * @brief Asks for implementation specific address identifier
+     *
+     * @retval based on transport implementation
+     */
+    virtual uint32_t getAddr() = 0;
+
+    /*!
+     * @brief Asks for implementation specific protocol identifier
+     *
+     * @retval based on transport implementation
+     */
+    virtual uint32_t getProtocol() = 0;
 };
 
 /*!

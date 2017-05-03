@@ -48,7 +48,7 @@ using namespace erpc;
 
 // global client variables
 static ManuallyConstructed<ClientManager> s_client;
-ClientManager *g_client;
+ClientManager *g_client = NULL;
 static ManuallyConstructed<BasicCodecFactory> s_codecFactory;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -57,15 +57,17 @@ static ManuallyConstructed<BasicCodecFactory> s_codecFactory;
 
 void erpc_client_init(erpc_transport_t transport, erpc_mbf_t message_buffer_factory)
 {
-    // Init factories.
-    s_codecFactory.construct();
+    if(g_client == NULL){
+        // Init factories.
+        s_codecFactory.construct();
 
-    // Init client manager with the provided transport.
-    s_client.construct();
-    s_client->setTransport(reinterpret_cast<Transport *>(transport));
-    s_client->setCodecFactory(s_codecFactory);
-    s_client->setMessageBufferFactory(reinterpret_cast<MessageBufferFactory *>(message_buffer_factory));
-    g_client = s_client;
+        // Init client manager with the provided transport.
+        s_client.construct();
+        s_client->setCodecFactory(s_codecFactory);
+        g_client = s_client;
+    }
+    g_client->setTransport(reinterpret_cast<Transport *>(transport));
+    g_client->setMessageBufferFactory(reinterpret_cast<MessageBufferFactory *>(message_buffer_factory));
 }
 
 void erpc_client_set_error_handler(client_error_handler_t error_handler)

@@ -124,6 +124,7 @@ public:
     : m_messageFactory()
     , m_codecFactory()
     , m_transport()
+    , m_pm_transport()
     , m_firstService()
     {
     }
@@ -157,11 +158,20 @@ public:
     void setTransport(Transport *transport);
 
     /*!
+     * @brief This function sets transport layer to use for communicating with portmapper.
+     *
+     * It also set messageBufferFactory to the same as in transport layer.
+     *
+     * @param[in] transport Transport layer to use for portmapper communications.
+     */
+    virtual void setPortmapperTransport(Transport *transport);
+
+    /*!
      * @brief Add service.
      *
      * @param[in] service Service to use.
      */
-    void addService(Service *service);
+    virtual void addService(Service *service);
 
     /*!
      * @brief This function runs the server.
@@ -177,6 +187,7 @@ protected:
     MessageBufferFactory *m_messageFactory; /*!< Contains MessageBufferFactory to use. */
     CodecFactory *m_codecFactory;           /*!< Contains CodecFactory to use. */
     Transport *m_transport;                 /*!< Transport layer used to send and receive data. */
+    Transport *m_pm_transport;              /*!< Transport layer used to contact portmapper. */
     Service *m_firstService;                /*!< Contains pointer to first service. */
 
     /*!
