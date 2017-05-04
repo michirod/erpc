@@ -53,6 +53,6 @@ erpc_transport_t erpc_transport_sock_rpmsg_multihost_init(uint16_t port, uint16_
     }
 }
 
-void erpc_transport_sock_rpmsg_multihost_deinit(){
-    s_transport.destroy();
+void erpc_transport_sock_rpmsg_multihost_deinit(erpc_transport_t transport){
+    reinterpret_cast<sockRPMsgMultihostTransport *>(transport)->~sockRPMsgMultihostTransport();
 }

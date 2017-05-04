@@ -160,25 +160,25 @@ erpc_transport_t erpc_transport_rpmsg_rtos_init(int dev_id, int role);
  * @brief Create a sockRPMsg transport.
  */
 erpc_transport_t erpc_transport_sock_rpmsg_init(uint16_t port, uint16_t remote_vproc_id, bool serverRole);
-void erpc_transport_sock_rpmsg_rtos_deinit();
+void erpc_transport_sock_rpmsg_deinit(erpc_transport_t transport);
 
 /*!
  * @brief Create a sockRPMsgMultihost transport.
  */
 erpc_transport_t erpc_transport_sock_rpmsg_multihost_init(uint16_t port, uint16_t remote_vproc_id, bool serverRole);
-void erpc_transport_sock_rpmsg_multihost_deinit();
+void erpc_transport_sock_rpmsg_multihost_deinit(erpc_transport_t transport);
 
 /*!
  * @brief Create a sockRPMsgRTOS transport.
  */
 erpc_transport_t erpc_transport_sock_rpmsg_rtos_init(uint16_t port, bool serverRole);
-void erpc_transport_sock_rpmsg_rtos_deinit();
+void erpc_transport_sock_rpmsg_rtos_deinit(erpc_transport_t transport);
 
 /*!
  * @brief Create a sockRPMsgMultihostRTOS transport.
  */
 erpc_transport_t erpc_transport_sock_rpmsg_multihost_rtos_init(uint16_t port, bool serverRole);
-void erpc_transport_sock_rpmsg_multihost_rtos_deinit();
+void erpc_transport_sock_rpmsg_multihost_rtos_deinit(erpc_transport_t transport);
 
 //@}
 

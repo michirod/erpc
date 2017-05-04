@@ -64,6 +64,7 @@ SOURCES += 	$(ERPC_C_ROOT)/infra/basic_codec.cpp \
 			$(ERPC_C_ROOT)/port/erpc_threading_sysbios.cpp \
 			$(ERPC_C_ROOT)/portmapper/erpc_portmapper_client.cpp \
 			$(ERPC_C_ROOT)/setup/erpc_client_setup.cpp \
+			$(ERPC_C_ROOT)/setup/erpc_portmapper_setup.cpp \
 			$(ERPC_C_ROOT)/setup/erpc_server_setup.cpp \
 			$(ERPC_C_ROOT)/infra/multihost_server.cpp \
 			$(ERPC_C_ROOT)/setup/erpc_multihost_server_setup.cpp \
@@ -90,6 +91,7 @@ HEADERS += 	$(ERPC_C_ROOT)/config/erpc_config.h \
 			$(ERPC_C_ROOT)/portmapper/erpc_portmapper.h \
 			$(ERPC_C_ROOT)/setup/erpc_arbitrated_client_setup.h \
 			$(ERPC_C_ROOT)/setup/erpc_client_setup.h \
+			$(ERPC_C_ROOT)/setup/erpc_portmapper_setup.h \
 			$(ERPC_C_ROOT)/setup/erpc_server_setup.h \
 			$(ERPC_C_ROOT)/setup/erpc_transport_setup.h \
 			$(ERPC_C_ROOT)/infra/multihost_server.h \

@@ -38,6 +38,7 @@ erpc_portmapper_hdrs += ${mkfile_path}portmapper/erpc_portmapper.h
 
 erpc_setup_srcs += 	${mkfile_path}setup/erpc_client_setup.cpp \
 					${mkfile_path}setup/erpc_multihost_server_setup.cpp \
+					${mkfile_path}setup/erpc_portmapper_setup.cpp \
 					${mkfile_path}setup/erpc_server_setup.cpp \
 					${mkfile_path}setup/erpc_setup_mbf_dynamic.cpp \
 					${mkfile_path}setup/erpc_setup_sock_rpmsg_multihost_rtos.cpp \

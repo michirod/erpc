@@ -50,6 +50,6 @@ erpc_transport_t erpc_transport_sock_rpmsg_rtos_init(uint16_t port, bool serverR
     return reinterpret_cast<erpc_transport_t>(s_transport.get());
 }
 
-void erpc_transport_sock_rpmsg_rtos_deinit(){
-    s_transport.destroy();
+void erpc_transport_sock_rpmsg_rtos_deinit(erpc_transport_t transport){
+    reinterpret_cast<sockRPMsgRTOSTransport *>(transport)->~sockRPMsgRTOSTransport();
 }

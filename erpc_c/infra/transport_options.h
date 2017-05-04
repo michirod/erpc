@@ -1,0 +1,9 @@
+#ifndef _EMBEDDED_RPC__TRANSPORT_OPTIONS_H_
+#define _EMBEDDED_RPC__TRANSPORT_OPTIONS_H_
+
+#include "erpc_common.h"
+
+
+
+
+#endif //_EMBEDDED_RPC__TRANSPORT_OPTIONS_H_

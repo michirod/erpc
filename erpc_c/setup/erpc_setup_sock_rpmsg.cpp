@@ -49,3 +49,8 @@ erpc_transport_t erpc_transport_sock_rpmsg_init(uint16_t port, uint16_t remote_v
     s_transport->init(port, remote_vproc_id, serverRole);
     return reinterpret_cast<erpc_transport_t>(s_transport.get());
 }
+
+
+void erpc_transport_sock_rpmsg_deinit(erpc_transport_t transport){
+    reinterpret_cast<sockRPMsgTransport *>(transport)->~sockRPMsgTransport();
+}
