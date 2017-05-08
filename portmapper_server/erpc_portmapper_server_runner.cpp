@@ -66,7 +66,7 @@ bool pm_register_service(erpc_transport_t transport, uint32_t program_id, pm_pro
     }
 
     if(good){
-        remote_entry *remote = (remote_entry *) malloc(sizeof(remote_entry));
+        remote_entry *remote = (remote_entry *) erpc_malloc(sizeof(remote_entry));
         remote->core_id = core_id;
         remote->port = port;
         entries->push_front(remote);
@@ -143,25 +143,29 @@ pm_entry_list * pm_lookup(uint32_t program_id, pm_protocols *protocol){
         total_hits = entries[*protocol].size();
     }
 
-    pm_entry_list * out_list = (pm_entry_list *) malloc(sizeof(pm_entry_list));
+    pm_entry_list * out_list = (pm_entry_list *) erpc_malloc(sizeof(pm_entry_list));
 
     out_list->elementsCount = total_hits;
-    out_list->elements = (pm_entry *) malloc(total_hits * sizeof(pm_entry));
-    pm_entry * ptr = out_list->elements;
+    if(total_hits > 0) {
+        out_list->elements = (pm_entry *) erpc_malloc(total_hits * sizeof(pm_entry));
+        pm_entry * ptr = out_list->elements;
 
-    pm_entry_clist::iterator lit;
-    unsigned int el_cnt = 0;
+        pm_entry_clist::iterator lit;
+        unsigned int el_cnt = 0;
 
-    if(protocol == NULL){
-        for(unsigned int i = 0; i < PROTOCOLS_COUNT; i++){
-            for(lit = entries[i].begin(); lit != entries[i].end(); lit ++){
-                fill_pm_entry(ptr, program_id, (pm_protocols) i, (*lit), el_cnt);
+        if(protocol == NULL){
+            for(unsigned int i = 0; i < PROTOCOLS_COUNT; i++){
+                for(lit = entries[i].begin(); lit != entries[i].end(); lit ++){
+                    fill_pm_entry(ptr, program_id, (pm_protocols) i, (*lit), el_cnt);
+                }
+            }
+        } else {
+            for(lit = entries[*protocol].begin(); lit != entries[*protocol].end(); lit ++){
+                fill_pm_entry(ptr, program_id, (*protocol), (*lit), el_cnt);
             }
         }
     } else {
-        for(lit = entries[*protocol].begin(); lit != entries[*protocol].end(); lit ++){
-            fill_pm_entry(ptr, program_id, (*protocol), (*lit), el_cnt);
-        }
+        out_list->elements = NULL;
     }
 
     return out_list;
