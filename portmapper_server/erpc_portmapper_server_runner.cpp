@@ -45,6 +45,8 @@ bool pm_register_service(erpc_transport_t transport, uint32_t program_id, pm_pro
     bool good = true;
     int16_t core_id = (int16_t) ((int)transport & 0xFFFF);
 
+    printf("registering service %d on port %d\n", program_id, port);
+
     if(protocol >= PROTOCOLS_COUNT){
         return false;
     }

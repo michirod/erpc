@@ -70,11 +70,17 @@ erpc_status_t sockRPMsgMultihostRTOSTransport::init(uint16_t port, bool serverRo
 {
     int ret_value, new_fd;
     struct sockaddr_rpmsg serveraddr;
+    rpmsg_socket_protocol prot_type = RPMSG_ST_DGRAM; //default
 
     serveraddr.family = AF_RPMSG;
     serveraddr.vproc_id = 0;
 
-    new_fd = rpmsg_socket_create(RPMSG_ST_DGRAM);
+    if (server_protocol == DGRAM)
+    	prot_type = RPMSG_ST_DGRAM;
+    else if (server_protocol == SEQPKT)
+    	prot_type = RPMSG_ST_SEQPKT;
+
+    new_fd = rpmsg_socket_create(prot_type);
     if(new_fd < 0){
         return kErpcStatus_InitFailed;
     }
