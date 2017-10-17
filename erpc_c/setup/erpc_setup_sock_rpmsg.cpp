@@ -27,7 +27,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "manually_constructed.h"
 #include "sock_rpmsg_transport.h"
 #include "erpc_transport_setup.h"
 
@@ -37,17 +36,15 @@ using namespace erpc;
 // Variables
 ////////////////////////////////////////////////////////////////////////////////
 
-static ManuallyConstructed<sockRPMsgTransport> s_transport;
-
 ////////////////////////////////////////////////////////////////////////////////
 // Code
 ////////////////////////////////////////////////////////////////////////////////
 
 erpc_transport_t erpc_transport_sock_rpmsg_init(uint16_t port, uint16_t remote_vproc_id, bool serverRole)
 {
-    s_transport.construct();
-    s_transport->init(port, remote_vproc_id, serverRole);
-    return reinterpret_cast<erpc_transport_t>(s_transport.get());
+	sockRPMsgTransport *transport = new sockRPMsgTransport();
+	transport->init(port, remote_vproc_id, serverRole);
+	return reinterpret_cast<erpc_transport_t>(transport);
 }
 
 

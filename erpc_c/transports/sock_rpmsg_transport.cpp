@@ -38,9 +38,6 @@ using namespace std;
 
 using namespace erpc;
 
-int sockRPMsgTransport::sock_fd = -1;
-uint16_t sockRPMsgTransport::remote_port;
-uint16_t sockRPMsgTransport::remote_proc;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Code
@@ -49,6 +46,7 @@ uint16_t sockRPMsgTransport::remote_proc;
 sockRPMsgTransport::sockRPMsgTransport()
 : Transport()
 {
+	sock_fd = -1;
 }
 
 sockRPMsgTransport::~sockRPMsgTransport()

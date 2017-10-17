@@ -109,8 +109,8 @@ public:
     virtual erpc_status_t send(MessageBuffer *message);
 
 protected:
-    static int sock_fd;
-    static uint16_t remote_port, remote_proc;
+    int sock_fd;
+    uint16_t remote_port, remote_proc;
 };
 
 } // namespace erpc
